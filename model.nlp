@@ -1,0 +1,1024 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "is,react,what": {
+            "intent": "react.intro",
+            "domain": "default"
+          },
+          "can,explain,is,react,what,you": {
+            "intent": "react.intro",
+            "domain": "default"
+          },
+          "are,compon,in,react,what": {
+            "intent": "react.components",
+            "domain": "default"
+          },
+          "can,compon,explain,react,you": {
+            "intent": "react.components",
+            "domain": "default"
+          },
+          "in,is,react,state,what": {
+            "intent": "react.state",
+            "domain": "default"
+          },
+          "can,concept,explain,in,of,react,state,the,you": {
+            "intent": "react.state",
+            "domain": "default"
+          },
+          "are,in,prop,react,what": {
+            "intent": "react.props",
+            "domain": "default"
+          },
+          "can,explain,in,prop,react,you": {
+            "intent": "react.props",
+            "domain": "default"
+          },
+          "is,jsx,what": {
+            "intent": "react.jsx",
+            "domain": "default"
+          },
+          "can,explain,in,jsx,react,you": {
+            "intent": "react.jsx",
+            "domain": "default"
+          },
+          "are,lifecycl,method,react,what": {
+            "intent": "react.lifecycle_methods",
+            "domain": "default"
+          },
+          "can,compon,explain,lifecycl,method,of,react,the,you": {
+            "intent": "react.lifecycle_methods",
+            "domain": "default"
+          },
+          "hook,in,is,react,the,useeffect,what": {
+            "intent": "react.useeffect",
+            "domain": "default"
+          },
+          "can,explain,in,react,useeffect,you": {
+            "intent": "react.useeffect",
+            "domain": "default"
+          },
+          "dom,is,the,virtual,what": {
+            "intent": "react.virtualdom",
+            "domain": "default"
+          },
+          "can,concept,dom,explain,in,of,react,the,virtual,you": {
+            "intent": "react.virtualdom",
+            "domain": "default"
+          },
+          "is,react,router,what": {
+            "intent": "react.router",
+            "domain": "default"
+          },
+          "can,explain,of,react,router,the,use,you": {
+            "intent": "react.router",
+            "domain": "default"
+          },
+          "is,redux,what": {
+            "intent": "react.redux",
+            "domain": "default"
+          },
+          "can,explain,in,react,redux,you": {
+            "intent": "react.redux",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "react.intro": "default",
+          "react.components": "default",
+          "react.state": "default",
+          "react.props": "default",
+          "react.jsx": "default",
+          "react.lifecycle_methods": "default",
+          "react.useeffect": "default",
+          "react.virtualdom": "default",
+          "react.router": "default",
+          "react.redux": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "What is React?",
+            "intent": "react.intro"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain what React is?",
+            "intent": "react.intro"
+          },
+          {
+            "domain": "default",
+            "utterance": "What are components in React?",
+            "intent": "react.components"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain React components?",
+            "intent": "react.components"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is state in React?",
+            "intent": "react.state"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain the concept of state in React?",
+            "intent": "react.state"
+          },
+          {
+            "domain": "default",
+            "utterance": "What are props in React?",
+            "intent": "react.props"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain props in React?",
+            "intent": "react.props"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is JSX?",
+            "intent": "react.jsx"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain JSX in React?",
+            "intent": "react.jsx"
+          },
+          {
+            "domain": "default",
+            "utterance": "What are React lifecycle methods?",
+            "intent": "react.lifecycle_methods"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain the lifecycle methods of React components?",
+            "intent": "react.lifecycle_methods"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is the useEffect hook in React?",
+            "intent": "react.useeffect"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain useEffect in React?",
+            "intent": "react.useeffect"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is the virtual DOM?",
+            "intent": "react.virtualdom"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain the concept of virtual DOM in React?",
+            "intent": "react.virtualdom"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is React Router?",
+            "intent": "react.router"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain the use of React Router?",
+            "intent": "react.router"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is Redux?",
+            "intent": "react.redux"
+          },
+          {
+            "domain": "default",
+            "utterance": "Can you explain Redux in React?",
+            "intent": "react.redux"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "what": 1,
+              "is": 1,
+              "react": 1,
+              "can": 1,
+              "you": 1,
+              "explain": 1,
+              "are": 1,
+              "compon": 1,
+              "in": 1,
+              "state": 1,
+              "the": 1,
+              "concept": 1,
+              "of": 1,
+              "prop": 1,
+              "jsx": 1,
+              "lifecycl": 1,
+              "method": 1,
+              "useeffect": 1,
+              "hook": 1,
+              "virtual": 1,
+              "dom": 1,
+              "router": 1,
+              "use": 1,
+              "redux": 1
+            },
+            "intents": {
+              "react.intro": 1,
+              "react.components": 1,
+              "react.state": 1,
+              "react.props": 1,
+              "react.jsx": 1,
+              "react.lifecycle_methods": 1,
+              "react.useeffect": 1,
+              "react.virtualdom": 1,
+              "react.router": 1,
+              "react.redux": 1
+            },
+            "intentFeatures": {
+              "react.intro": {
+                "what": 1,
+                "is": 1,
+                "react": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1
+              },
+              "react.components": {
+                "what": 1,
+                "are": 1,
+                "compon": 1,
+                "in": 1,
+                "react": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1
+              },
+              "react.state": {
+                "what": 1,
+                "is": 1,
+                "state": 1,
+                "in": 1,
+                "react": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1,
+                "the": 1,
+                "concept": 1,
+                "of": 1
+              },
+              "react.props": {
+                "what": 1,
+                "are": 1,
+                "prop": 1,
+                "in": 1,
+                "react": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1
+              },
+              "react.jsx": {
+                "what": 1,
+                "is": 1,
+                "jsx": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1,
+                "in": 1,
+                "react": 1
+              },
+              "react.lifecycle_methods": {
+                "what": 1,
+                "are": 1,
+                "react": 1,
+                "lifecycl": 1,
+                "method": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1,
+                "the": 1,
+                "of": 1,
+                "compon": 1
+              },
+              "react.useeffect": {
+                "what": 1,
+                "is": 1,
+                "the": 1,
+                "useeffect": 1,
+                "hook": 1,
+                "in": 1,
+                "react": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1
+              },
+              "react.virtualdom": {
+                "what": 1,
+                "is": 1,
+                "the": 1,
+                "virtual": 1,
+                "dom": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1,
+                "concept": 1,
+                "of": 1,
+                "in": 1,
+                "react": 1
+              },
+              "react.router": {
+                "what": 1,
+                "is": 1,
+                "react": 1,
+                "router": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1,
+                "the": 1,
+                "use": 1,
+                "of": 1
+              },
+              "react.redux": {
+                "what": 1,
+                "is": 1,
+                "redux": 1,
+                "can": 1,
+                "you": 1,
+                "explain": 1,
+                "in": 1,
+                "react": 1
+              }
+            },
+            "featuresToIntent": {
+              "what": [
+                "react.intro",
+                "react.components",
+                "react.state",
+                "react.props",
+                "react.jsx",
+                "react.lifecycle_methods",
+                "react.useeffect",
+                "react.virtualdom",
+                "react.router",
+                "react.redux"
+              ],
+              "is": [
+                "react.intro",
+                "react.state",
+                "react.jsx",
+                "react.useeffect",
+                "react.virtualdom",
+                "react.router",
+                "react.redux"
+              ],
+              "react": [
+                "react.intro",
+                "react.components",
+                "react.state",
+                "react.props",
+                "react.jsx",
+                "react.lifecycle_methods",
+                "react.useeffect",
+                "react.virtualdom",
+                "react.router",
+                "react.redux"
+              ],
+              "can": [
+                "react.intro",
+                "react.components",
+                "react.state",
+                "react.props",
+                "react.jsx",
+                "react.lifecycle_methods",
+                "react.useeffect",
+                "react.virtualdom",
+                "react.router",
+                "react.redux"
+              ],
+              "you": [
+                "react.intro",
+                "react.components",
+                "react.state",
+                "react.props",
+                "react.jsx",
+                "react.lifecycle_methods",
+                "react.useeffect",
+                "react.virtualdom",
+                "react.router",
+                "react.redux"
+              ],
+              "explain": [
+                "react.intro",
+                "react.components",
+                "react.state",
+                "react.props",
+                "react.jsx",
+                "react.lifecycle_methods",
+                "react.useeffect",
+                "react.virtualdom",
+                "react.router",
+                "react.redux"
+              ],
+              "are": [
+                "react.components",
+                "react.props",
+                "react.lifecycle_methods"
+              ],
+              "compon": [
+                "react.components",
+                "react.lifecycle_methods"
+              ],
+              "in": [
+                "react.components",
+                "react.state",
+                "react.props",
+                "react.jsx",
+                "react.useeffect",
+                "react.virtualdom",
+                "react.redux"
+              ],
+              "state": [
+                "react.state"
+              ],
+              "the": [
+                "react.state",
+                "react.lifecycle_methods",
+                "react.useeffect",
+                "react.virtualdom",
+                "react.router"
+              ],
+              "concept": [
+                "react.state",
+                "react.virtualdom"
+              ],
+              "of": [
+                "react.state",
+                "react.lifecycle_methods",
+                "react.virtualdom",
+                "react.router"
+              ],
+              "prop": [
+                "react.props"
+              ],
+              "jsx": [
+                "react.jsx"
+              ],
+              "lifecycl": [
+                "react.lifecycle_methods"
+              ],
+              "method": [
+                "react.lifecycle_methods"
+              ],
+              "useeffect": [
+                "react.useeffect"
+              ],
+              "hook": [
+                "react.useeffect"
+              ],
+              "virtual": [
+                "react.virtualdom"
+              ],
+              "dom": [
+                "react.virtualdom"
+              ],
+              "router": [
+                "react.router"
+              ],
+              "use": [
+                "react.router"
+              ],
+              "redux": [
+                "react.redux"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "what",
+                "is",
+                "react",
+                "can",
+                "you",
+                "explain",
+                "are",
+                "compon",
+                "in",
+                "state",
+                "the",
+                "concept",
+                "of",
+                "prop",
+                "jsx",
+                "lifecycl",
+                "method",
+                "useeffect",
+                "hook",
+                "virtual",
+                "dom",
+                "router",
+                "use",
+                "redux"
+              ],
+              "intents": [
+                "react.intro",
+                "react.components",
+                "react.state",
+                "react.props",
+                "react.jsx",
+                "react.lifecycle_methods",
+                "react.useeffect",
+                "react.virtualdom",
+                "react.router",
+                "react.redux"
+              ],
+              "perceptrons": [
+                [
+                  2.7527341842651367,
+                  5.540280818939209,
+                  7.367105960845947,
+                  0.3947140574455261,
+                  0.3947140574455261,
+                  0.3947140574455261,
+                  -2.780081033706665,
+                  -6.381768703460693,
+                  -8.002596855163574,
+                  -5.09293270111084,
+                  -2.9566452503204346,
+                  -0.23871031403541565,
+                  -0.5572246313095093,
+                  -1.0673664808273315,
+                  -5.739902973175049,
+                  -2.3927745819091797,
+                  -2.3927745819091797,
+                  -1.2677785158157349,
+                  -0.9563873410224915,
+                  -1.419596552848816,
+                  -1.419596552848816,
+                  -12.715751647949219,
+                  -0.06905865669250488,
+                  -5.593478202819824,
+                  -2.594824862848685
+                ],
+                [
+                  -0.09901272505521774,
+                  -2.6147971153259277,
+                  1.3899282217025757,
+                  0.22618933022022247,
+                  0.22618933022022247,
+                  0.22618933022022247,
+                  2.5158607959747314,
+                  11.568147659301758,
+                  -1.7351564168930054,
+                  -0.8067635297775269,
+                  -3.4424378871917725,
+                  -0.37045860290527344,
+                  -3.4424378871917725,
+                  -3.1561660766601562,
+                  -1.293758511543274,
+                  -3.698781967163086,
+                  -3.698781967163086,
+                  -0.9801815152168274,
+                  0,
+                  0,
+                  0,
+                  -0.5026426315307617,
+                  -0.025096798315644264,
+                  -0.9790827631950378,
+                  0.646330115014265
+                ],
+                [
+                  -0.2697715759277344,
+                  1.0283536911010742,
+                  -0.18993252515792847,
+                  -0.8410996794700623,
+                  -0.8410996794700623,
+                  -0.8410996794700623,
+                  -1.2979656457901,
+                  -1.2038391828536987,
+                  3.518806219100952,
+                  10.744406700134277,
+                  -0.405240923166275,
+                  2.31368088722229,
+                  1.3840630054473877,
+                  -1.5655361413955688,
+                  -1.205379605293274,
+                  -0.7533067464828491,
+                  -0.7533067464828491,
+                  -1.8883659839630127,
+                  -1.582109808921814,
+                  -2.3280043601989746,
+                  -2.3280043601989746,
+                  -0.8412671685218811,
+                  -0.13082751631736755,
+                  -0.649509608745575,
+                  -0.5553394375744327
+                ],
+                [
+                  -0.3287850320339203,
+                  -1.3999463319778442,
+                  0.06283271312713623,
+                  0.24907509982585907,
+                  0.24907509982585907,
+                  0.24907509982585907,
+                  1.0839178562164307,
+                  -2.9022974967956543,
+                  1.5839259624481201,
+                  -0.4840279519557953,
+                  -1.3235965967178345,
+                  -0.3582622706890106,
+                  -0.7757166028022766,
+                  11.92577075958252,
+                  -2.3531241416931152,
+                  -1.1939164400100708,
+                  -1.1939164400100708,
+                  -2.3539133071899414,
+                  -0.4497236907482147,
+                  -0.3582622706890106,
+                  -0.3582622706890106,
+                  -0.18012255430221558,
+                  -0.012767944484949112,
+                  -2.3522298336029053,
+                  -0.04000197039966283
+                ],
+                [
+                  -0.04101280868053436,
+                  0.23131537437438965,
+                  -2.3751375675201416,
+                  0.2964862883090973,
+                  0.2964862883090973,
+                  0.2964862883090973,
+                  -0.2675923705101013,
+                  -0.4829610288143158,
+                  1.6722012758255005,
+                  -0.8587263822555542,
+                  -1.343380093574524,
+                  -0.3365629017353058,
+                  -0.80278480052948,
+                  -1.4051254987716675,
+                  12.875260353088379,
+                  -0.506664514541626,
+                  -0.506664514541626,
+                  -1.662943959236145,
+                  -0.3116515576839447,
+                  -0.48161780834198,
+                  -0.48161780834198,
+                  -0.5700847506523132,
+                  -0.06158716604113579,
+                  -1.8504087924957275,
+                  1.2214465077639323
+                ],
+                [
+                  0.3188015818595886,
+                  -1.1966240406036377,
+                  0.39078789949417114,
+                  -0.3630285859107971,
+                  -0.3630285859107971,
+                  -0.3630285859107971,
+                  1.543302297592163,
+                  0.584925651550293,
+                  -2.927741765975952,
+                  -0.007561740931123495,
+                  0.9563376903533936,
+                  -0.46527954936027527,
+                  1.409927248954773,
+                  -0.10767673701047897,
+                  0,
+                  5.971447944641113,
+                  5.971447944641113,
+                  -0.5366831421852112,
+                  -0.1779661327600479,
+                  -0.6055806279182434,
+                  -0.6055806279182434,
+                  -1.1166671514511108,
+                  -0.861160159111023,
+                  -0.1369045078754425,
+                  0.08992551002809047
+                ],
+                [
+                  -1.5911495685577393,
+                  -0.5277928113937378,
+                  -0.3586377501487732,
+                  0.3414749205112457,
+                  0.3414749205112457,
+                  0.3414749205112457,
+                  -1.0256905555725098,
+                  -0.9202735424041748,
+                  1.9483883380889893,
+                  -1.3575698137283325,
+                  0.7455779910087585,
+                  -1.0457135438919067,
+                  -1.5601730346679688,
+                  -2.349200963973999,
+                  -2.3464248180389404,
+                  0,
+                  0,
+                  11.928858757019043,
+                  2.406170606613159,
+                  -0.834460437297821,
+                  -0.834460437297821,
+                  -0.8850346207618713,
+                  -0.44929301738739014,
+                  -2.348787546157837,
+                  -0.26357284307870343
+                ],
+                [
+                  -0.11327596753835678,
+                  0.055198464542627335,
+                  -1.6955220699310303,
+                  -0.2636139988899231,
+                  -0.2636139988899231,
+                  -0.2636139988899231,
+                  -0.13387371599674225,
+                  -0.4659208059310913,
+                  0.09148012101650238,
+                  -2.2429134845733643,
+                  2.3228955268859863,
+                  1.639971375465393,
+                  0.6964592933654785,
+                  -0.019648872315883636,
+                  -0.38382306694984436,
+                  -0.16620466113090515,
+                  -0.16620466113090515,
+                  -0.6690767407417297,
+                  -0.6690767407417297,
+                  6.021156311035156,
+                  6.021156311035156,
+                  -0.7639402151107788,
+                  -0.5779847502708435,
+                  -0.7088586091995239,
+                  -0.02125155305509036
+                ],
+                [
+                  -0.3328251540660858,
+                  -0.1348339021205902,
+                  0.8784986138343811,
+                  -1.428177833557129,
+                  -1.428177833557129,
+                  -1.428177833557129,
+                  -0.1936279833316803,
+                  -1.3963470458984375,
+                  -2.056607246398926,
+                  -0.8555163145065308,
+                  0.11277520656585693,
+                  -0.935451328754425,
+                  1.0523107051849365,
+                  -0.0784107893705368,
+                  -0.41864439845085144,
+                  -0.9306632280349731,
+                  -0.9306632280349731,
+                  -0.45184534788131714,
+                  -0.45184534788131714,
+                  -0.5863624215126038,
+                  -0.5863624215126038,
+                  13.865692138671875,
+                  2.8507754802703857,
+                  -0.7351760864257812,
+                  -0.1733285508035387
+                ],
+                [
+                  -0.11362717300653458,
+                  0.3928718864917755,
+                  -1.9508342742919922,
+                  0.13654263317584991,
+                  0.13654263317584991,
+                  0.13654263317584991,
+                  -0.49083852767944336,
+                  -1.0578597784042358,
+                  1.8161721229553223,
+                  -1.4941052198410034,
+                  -1.0634503364562988,
+                  -0.5936374068260193,
+                  -0.5936374068260193,
+                  -1.4566508531570435,
+                  -1.615857481956482,
+                  0,
+                  0,
+                  -1.4555069208145142,
+                  -0.05823039263486862,
+                  -0.3112942576408386,
+                  -0.3112942576408386,
+                  0,
+                  0,
+                  12.825170516967773,
+                  1.1827452543225354
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "What is React?"
+      ],
+      [
+        "en",
+        "Can you explain what React is?"
+      ],
+      [
+        "en",
+        "What are components in React?"
+      ],
+      [
+        "en",
+        "Can you explain React components?"
+      ],
+      [
+        "en",
+        "What is state in React?"
+      ],
+      [
+        "en",
+        "Can you explain the concept of state in React?"
+      ],
+      [
+        "en",
+        "What are props in React?"
+      ],
+      [
+        "en",
+        "Can you explain props in React?"
+      ],
+      [
+        "en",
+        "What is JSX?"
+      ],
+      [
+        "en",
+        "Can you explain JSX in React?"
+      ],
+      [
+        "en",
+        "What are React lifecycle methods?"
+      ],
+      [
+        "en",
+        "Can you explain the lifecycle methods of React components?"
+      ],
+      [
+        "en",
+        "What is the useEffect hook in React?"
+      ],
+      [
+        "en",
+        "Can you explain useEffect in React?"
+      ],
+      [
+        "en",
+        "What is the virtual DOM?"
+      ],
+      [
+        "en",
+        "Can you explain the concept of virtual DOM in React?"
+      ],
+      [
+        "en",
+        "What is React Router?"
+      ],
+      [
+        "en",
+        "Can you explain the use of React Router?"
+      ],
+      [
+        "en",
+        "What is Redux?"
+      ],
+      [
+        "en",
+        "Can you explain Redux in React?"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "react.intro": [
+          {
+            "answer": "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page."
+          }
+        ],
+        "react.components": [
+          {
+            "answer": "Components are the building blocks of a React application. They are reusable pieces of code that return a React element to be rendered to the page. Components can be either class-based or function-based."
+          }
+        ],
+        "react.state": [
+          {
+            "answer": "State is a built-in object that stores property values that belong to a component. When the state object changes, the component re-renders. State is used for managing dynamic data in an application."
+          }
+        ],
+        "react.props": [
+          {
+            "answer": "Props (short for properties) are read-only attributes used to pass data from one component to another. They are passed to the component in a way similar to arguments passed in a function call."
+          }
+        ],
+        "react.jsx": [
+          {
+            "answer": "JSX stands for JavaScript XML. It allows us to write HTML inside JavaScript and place them in the DOM without using functions like createElement() or appendChild()."
+          }
+        ],
+        "react.lifecycle_methods": [
+          {
+            "answer": "Lifecycle methods are functions that get called at different stages of a component's life in React. They include methods like componentDidMount, componentDidUpdate, and componentWillUnmount."
+          }
+        ],
+        "react.useeffect": [
+          {
+            "answer": "useEffect is a hook in React that allows you to perform side effects in function components. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React class components."
+          }
+        ],
+        "react.virtualdom": [
+          {
+            "answer": "The virtual DOM is a lightweight representation of the real DOM. When the state of an object changes, the virtual DOM changes only the object in the real DOM, rather than reloading the entire DOM. This makes the update process faster."
+          }
+        ],
+        "react.router": [
+          {
+            "answer": "React Router is a standard library for routing in React. It enables navigation among views or different components in a React application, allowing for single-page applications with navigation without refreshing the whole page."
+          }
+        ],
+        "react.redux": [
+          {
+            "answer": "Redux is a predictable state container for JavaScript applications. It helps you manage the state of your application in a consistent way, making it easier to manage and debug. It is often used with React for managing state across the entire application."
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

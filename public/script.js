@@ -63,7 +63,7 @@ const correctAnswers = [
 ];
 
 const answerKeywords = [
-  ["react", "javascript", "library", "user", "interfaces"],
+  ["react", "javascript", "library", "user interfaces"],
   ["components", "building blocks", "react", "application", "reusable"],
   ["state", "built-in", "object", "component", "re-renders", "dynamic"],
   ["props", "properties", "read-only", "pass", "data", "component"],

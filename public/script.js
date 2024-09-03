@@ -24,15 +24,6 @@ function addMessage(sender, message) {
 
 async function sendMessageToBot(message) {
   // Simulating a bot response for the sake of the example
-  const response = await fetch('/chat', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ message })
-  });
-  const data = await response.json();
-  // addMessage('bot', data.response);
   checkAnswer(message);
 }
 
@@ -40,11 +31,11 @@ const questions = [
   "What is React?",
   "Can you explain React components?",
   "What is state in React?",
-  "What are props in React?",
-  "What is JSX?",
+  "What are properties in React?",
+  "What is JavaScript XML?",
   "What are React lifecycle methods?",
-  "What is the useEffect hook in React?",
-  "What is the virtual DOM?",
+  "What is the effect hook in React?",
+  "What is the virtual Document Object Model?",
   "What is React Router?",
   "What is Redux?"
 ];
@@ -53,24 +44,24 @@ const correctAnswers = [
   "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page.",
   "Components are the building blocks of a React application. They are reusable pieces of code that return a React element to be rendered to the page. Components can be either class-based or function-based.",
   "State is a built-in object that stores property values that belong to a component. When the state object changes, the component re-renders. State is used for managing dynamic data in an application.",
-  "Props (short for properties) are read-only attributes used to pass data from one component to another. They are passed to the component in a way similar to arguments passed in a function call.",
-  "JSX stands for JavaScript XML. It allows us to write HTML inside JavaScript and place them in the DOM without using functions like createElement() or appendChild().",
+  "Properties (also known as props) are read-only attributes used to pass data from one component to another. They are passed to the component in a way similar to arguments passed in a function call.",
+  "JavaScript XML stands for JavaScript XML. It allows us to write HTML inside JavaScript and place them in the DOM without using functions like createElement() or appendChild().",
   "Lifecycle methods are functions that get called at different stages of a component's life in React. They include methods like componentDidMount, componentDidUpdate, and componentWillUnmount.",
-  "useEffect is a hook in React that allows you to perform side effects in function components. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React class components.",
-  "The virtual DOM is a lightweight representation of the real DOM. When the state of an object changes, the virtual DOM changes only the object in the real DOM, rather than reloading the entire DOM. This makes the update process faster.",
+  "The effect hook is a function in React that allows you to perform side effects in functional components. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React class components.",
+  "The virtual Document Object Model is a lightweight representation of the real Document Object Model. When the state of an object changes, the virtual Document Object Model changes only the object in the real Document Object Model, rather than reloading the entire Document Object Model. This makes the update process faster.",
   "React Router is a standard library for routing in React. It enables navigation among views or different components in a React application, allowing for single-page applications with navigation without refreshing the whole page.",
   "Redux is a predictable state container for JavaScript applications. It helps you manage the state of your application in a consistent way, making it easier to manage and debug. It is often used with React for managing state across the entire application."
 ];
 
 const answerKeywords = [
   ["react", "javascript", "library", "user interfaces"],
-  ["components", "building blocks", "react", "application", "reusable"],
+  ["components", "building blocks", "react", "applications", "reusable"],
   ["state", "built-in", "object", "component", "re-renders", "dynamic"],
-  ["props", "properties", "read-only", "pass", "data", "component"],
-  ["jsx", "javascript xml", "html", "inside", "javascript"],
+  ["properties", "read-only", "pass", "data", "component"],
+  ["javascript xml", "html", "inside", "javascript"],
   ["lifecycle", "methods", "stages", "component", "life", "react"],
-  ["useeffect", "hook", "side effects", "function", "components"],
-  ["virtual dom", "lightweight", "real dom", "update", "faster"],
+  ["effect hook", "side effects", "function", "components"],
+  ["virtual document object model", "lightweight", "real document object model", "update", "faster"],
   ["react router", "routing", "single-page", "navigation", "views"],
   ["redux", "state", "container", "consistent", "manage", "debug"]
 ];
@@ -100,11 +91,24 @@ function checkAnswer(userAnswer) {
   }
 }
 
-function isAnswerCorrect(userAnswer, keywords) { 
+// function isAnswerCorrect(userAnswer, keywords) { 
+//   const normalizedUserAnswer = userAnswer.toLowerCase().trim();
+
+//   // Check if all relevant keywords are present in the user's answer
+//   return keywords.every(keyword => {
+//     const regex = new RegExp(`\\b${keyword}\\b`);
+//     return regex.test(normalizedUserAnswer);
+//   });
+// }
+
+function isAnswerCorrect(userAnswer, keywords) {
   const normalizedUserAnswer = userAnswer.toLowerCase().trim();
 
   // Check if all relevant keywords are present in the user's answer
-  return keywords.every(keyword => normalizedUserAnswer.includes(keyword));
+  return keywords.every(keyword => {
+    const keywordLower = keyword.toLowerCase();
+    return normalizedUserAnswer.includes(keywordLower);
+  });
 }
 
 function askNextQuestion() {

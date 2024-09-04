@@ -55,7 +55,7 @@ const correctAnswers = [
 
 const answerKeywords = [
   ["react", "javascript", "library", "user interfaces"],
-  ["components", "building blocks", "react", "applications", "reusable"],
+  ["components", "building","blocks", "react", "applications", "reusable"],
   ["state", "built-in", "object", "component", "re-renders", "dynamic"],
   ["properties", "read-only", "pass", "data", "component"],
   ["javascript xml", "html", "inside", "javascript"],
@@ -101,14 +101,26 @@ function checkAnswer(userAnswer) {
 //   });
 // }
 
+// function isAnswerCorrect(userAnswer, keywords) {
+//   const normalizedUserAnswer = userAnswer.toLowerCase();
+
+//   // Check if all relevant keywords are present in the user's answer
+//   return keywords.every(keyword => {
+//     const keywordLower = keyword.toLowerCase();
+//     return normalizedUserAnswer.includes(keywordLower);
+//   });
+// }
 function isAnswerCorrect(userAnswer, keywords) {
   const normalizedUserAnswer = userAnswer.toLowerCase().trim();
 
-  // Check if all relevant keywords are present in the user's answer
-  return keywords.every(keyword => {
+  // Check if a majority of relevant keywords are present in the user's answer
+  const matchCount = keywords.reduce((count, keyword) => {
     const keywordLower = keyword.toLowerCase();
-    return normalizedUserAnswer.includes(keywordLower);
-  });
+    return normalizedUserAnswer.includes(keywordLower) ? count + 1 : count;
+  }, 0);
+
+  // Consider correct if more than 80% of keywords match
+  return matchCount / keywords.length >= 0.8;
 }
 
 function askNextQuestion() {

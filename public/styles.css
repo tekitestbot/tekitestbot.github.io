@@ -5,13 +5,36 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #1e1e1e;
-  color: #d4d4d4;
+  background: linear-gradient(-45deg, #0a0a0a, #1c1c1c, #2e2e2e, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradient 30s ease infinite;
+  color: #fff;
+}
+
+.test-container {
+  background: url('tekisolutions_b-50.png');
+  background-position: center right;
+  background-size: object-fit;
+  background-repeat: no-repeat;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 #chat-container {
   background: #252526;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   width: 400px;
   max-width: 100%;
@@ -27,7 +50,7 @@ body {
   border: 1px solid #3c3c3c;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 0px;
   background-color: #1e1e1e;
   font-family: 'Source Code Pro', monospace;
 }
@@ -39,9 +62,9 @@ body {
 .user {
   text-align: right;
   color: #ffffff;
-  background-color: #007acc;
+  background-color: #008080;
   padding: 8px 12px;
-  border-radius: 15px;
+  border-radius: 0px;
   display: inline-block;
 }
 
@@ -50,7 +73,7 @@ body {
   color: #ffffff;
   background-color: #2d2d2d;
   padding: 8px 12px;
-  border-radius: 15px;
+  border-radius: 0px;
   display: inline-block;
 }
 
@@ -58,24 +81,24 @@ body {
   width: calc(100% - 80px);
   padding: 10px;
   border: 1px solid #3c3c3c;
-  border-radius: 5px;
+  border-radius: 0px;
   outline: none;
   color: #d4d4d4;
   background-color: #1e1e1e;
 }
 
 #messageInput:focus {
-  border-color: #007acc;
+  border-color: #008080;
   background-color: #252526;
 }
 
 #sendBtn {
   padding: 10px 20px;
-  background-color: #007acc;
+  background-color: #008080;
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0px;
   margin-left: 10px;
   outline: none;
   font-family: 'Roboto', sans-serif;
@@ -128,7 +151,7 @@ h1 {
 /* Loader styling */
 .loader {
   border: 6px solid #f3f3f3;
-  border-top: 6px solid #007acc;
+  border-top: 6px solid #008080;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -155,4 +178,14 @@ h1 {
   #maintenance-container p {
       font-size: 14px;
   }
+}
+
+section{
+  width: 100%;
+}
+
+.test-board {
+  box-shadow: 23px 22px 0px -5px #754fa4, -23px -22px 0px -5px #008080;
+  background-color: #1e1e1e;
+  padding: 30px;
 }

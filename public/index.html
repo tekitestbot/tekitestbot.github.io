@@ -14,32 +14,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teki Test Bot - Enhance Your Interview Skills</title>
-  <meta name="description" content="Teki Test Bot is an interactive chatbot designed to help developers practice for interviews. Improve your skills with realistic questions and tips.">
+  <meta name="description"
+    content="Teki Test Bot is an interactive chatbot designed to help developers practice for interviews. Improve your skills with realistic questions and tips.">
   <meta name="keywords" content="interview preparation, chatbot, React, developer tools, practice">
   <meta property="og:title" content="Teki Test Bot - Enhance Your Interview Skills">
-  <meta property="og:description" content="Teki Test Bot is an interactive chatbot designed to help developers practice for interviews. Improve your skills with realistic questions and tips.">
+  <meta property="og:description"
+    content="Teki Test Bot is an interactive chatbot designed to help developers practice for interviews. Improve your skills with realistic questions and tips.">
   <meta property="og:image" content="URL_TO_IMAGE">
   <meta property="og:url" content="YOUR_PAGE_URL">
   <meta property="og:type" content="website">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content="Teki Test Bot - Enhance Your Interview Skills">
-  <meta property="twitter:description" content="Teki Test Bot is an interactive chatbot designed to help developers practice for interviews. Improve your skills with realistic questions and tips.">
+  <meta property="twitter:description"
+    content="Teki Test Bot is an interactive chatbot designed to help developers practice for interviews. Improve your skills with realistic questions and tips.">
   <meta property="twitter:image" content="URL_TO_IMAGE">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Source+Code+Pro:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <div id="chat-container">
-    <h1>Teki Test Bot</h1>
-    <div id="chat"></div>
-    <div style="display: flex;">
-      <input type="text" id="messageInput" placeholder="Type a message..." />
-      <button id="sendBtn">Send</button>
+  <section class="test-container">
+    <div class="container">
+      <div class="row">
+        <div id="chat-container">
+          <h1>Teki Test Bot</h1>
+          <div id="chat"></div>
+          <div style="display: flex;">
+            <input type="text" id="messageInput" placeholder="Type a message..." />
+            <button id="sendBtn">Send</button>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-5">
+        <div class="test-board">
+          <h1>How Teki Test Bot Marks Your Answers</h1>
+          <p>
+            Teki Test Bot uses a smart keyword-matching system to evaluate your responses. Each question has a set of
+            important keywords, and your answer is considered correct if it matches at least 80% of these terms. This
+            ensures that you're focusing on key concepts without needing to use exact phrases. It's a great way to
+            practice for developer interviews, especially for topics like React, where understanding the core ideas is
+            essential.</p>
+        </div>
+      </div>
     </div>
-  </div>
+    </setion>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 <!-- <body>
   <div id="maintenance-container">

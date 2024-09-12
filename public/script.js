@@ -55,7 +55,7 @@ const correctAnswers = [
 
 const answerKeywords = [
   ["react", "javascript", "library", "user interfaces"],
-  ["components", "building","blocks", "react", "applications", "reusable"],
+  ["components", "building", "blocks", "react", "applications", "reusable"],
   ["state", "built-in", "object", "component", "re-renders", "dynamic"],
   ["properties", "read-only", "pass", "data", "component"],
   ["javascript xml", "html", "inside", "javascript"],

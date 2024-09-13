@@ -22,6 +22,7 @@
     content="Teki Test Bot is an interactive chatbot designed to help developers practice for interviews. Improve your skills with realistic questions and tips.">
   <meta property="og:image" content="URL_TO_IMAGE">
   <meta property="og:url" content="YOUR_PAGE_URL">
+  <link rel="icon" href="tekisolutions_fav_icon.png" type="image/x-icon">
   <meta property="og:type" content="website">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content="Teki Test Bot - Enhance Your Interview Skills">
@@ -38,8 +39,8 @@
 <body>
   <section class="test-container">
     <div class="container">
-      <div class="row">
-        <div id="chat-container">
+      <div class="row pt-5">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" id="chat-container">
           <h1>Teki Test Bot</h1>
           <div id="chat"></div>
           <div style="display: flex;">
@@ -48,7 +49,7 @@
           </div>
         </div>
       </div>
-      <div class="row pt-5">
+      <div class="row pt-5 mb-5">
         <div class="test-board">
           <h1>How Teki Test Bot Marks Your Answers</h1>
           <p>
@@ -56,20 +57,40 @@
             important keywords, and your answer is considered correct if it matches at least 80% of these terms. This
             ensures that you're focusing on key concepts without needing to use exact phrases. It's a great way to
             practice for developer interviews, especially for topics like React, where understanding the core ideas is
-            essential.</p>
+            essential.
+          </p>
+          <button class="cheet-btn btn btn-primary mt-2 mb-3" type="button" data-toggle="collapse" data-target="#keywordGuide" aria-expanded="false" aria-controls="keywordGuide">
+            Show React Keyword Cheat Sheet
+          </button>
+          <div class="collapse" id="keywordGuide">
+            <div class="card card-body bg-dark text-white mb-3 mt-2">
+              <h2>React Keyword Cheat Sheet</h2>
+              <ul>
+                <li><b>What is React?</b> - Include: React, JavaScript, library, user interfaces, data, reloading.</li>
+                <li><b>React Components:</b> - Include: components, reusable, building blocks, function-based, class-based.</li>
+                <li><b>State in React:</b> - Include: state, built-in object, component, re-renders, dynamic data.</li>
+                <li><b>Props in React:</b> - Include: props, properties, read-only, pass data, component.</li>
+                <li><b>JSX:</b> - Include: JSX, JavaScript XML, HTML, JavaScript, DOM.</li>
+                <li><b>React Lifecycle Methods:</b> - Include: lifecycle methods, stages, mount, update, unmount.</li>
+                <li><b>Effect Hook:</b> - Include: effect hook, side effects, functional components.</li>
+                <li><b>Virtual DOM:</b> - Include: virtual DOM, lightweight, update, faster.</li>
+                <li><b>React Router:</b> - Include: React Router, routing, single-page application, navigation.</li>
+                <li><b>Redux:</b> - Include: Redux, state, container, consistent, debug, manage.</li>
+              </ul>
+            </div>
+          </div>
+          <p>
+            <b>Designed and developed by <a href="https://tekisolves.github.io/" style="color:#008080">Teki Solves</a></b>
+          </p>
         </div>
       </div>
     </div>
-    </setion>
+  </section>
 
-    <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
 </body>
-<!-- <body>
-  <div id="maintenance-container">
-    <h1>We'll Be Right Back!</h1>
-    <p>The Teki Test Bot is currently undergoing maintenance. We're working hard to improve your experience. Please check back soon.</p>
-    <div class="loader"></div>
-  </div>
-</body> -->
 
 </html>

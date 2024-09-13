@@ -36,8 +36,6 @@ body {
   background: #252526;
   border-radius: 0px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  width: 400px;
-  max-width: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -188,4 +186,11 @@ section{
   box-shadow: 23px 22px 0px -5px #754fa4, -23px -22px 0px -5px #008080;
   background-color: #1e1e1e;
   padding: 30px;
+}
+
+.cheet-btn{
+  background-color: #008080 !important;
+  color: #fff;
+  border-radius: 0px;
+  border: none !important;
 }

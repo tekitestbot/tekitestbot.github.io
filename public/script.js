@@ -58,7 +58,7 @@ const answerKeywords = [
   ["components", "building", "blocks", "react", "applications", "reusable"],
   ["state", "built-in", "object", "component", "re-renders", "dynamic"],
   ["properties", "read-only", "pass", "data", "component"],
-  ["javascript xml", "html", "inside", "javascript"],
+  ["JSX", "javascript xml", "html", "inside", "javascript"],
   ["lifecycle", "methods", "stages", "component", "life", "react"],
   ["effect hook", "side effects", "function", "components"],
   ["virtual document object model", "lightweight", "real document object model", "update", "faster"],

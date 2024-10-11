@@ -88,6 +88,89 @@
       "answers": [
         "Redux is a predictable state container for JavaScript applications. It helps you manage the state of your application in a consistent way, making it easier to manage and debug. It is often used with React for managing state across the entire application."
       ]
+    },
+    "react.hooks": {
+      "questions": [
+        "What are React Hooks?",
+        "Can you explain React Hooks?"
+      ],
+      "answers": [
+        "React Hooks are functions that let you use state and other React features in functional components, like `useState` for state management and `useEffect` for side effects. They simplify code and improve reusability."
+      ]
+    },
+    "react.useState": {
+      "questions": [
+        "What is `useState` in React?",
+        "How does the `useState` hook work?"
+      ],
+      "answers": [
+        "`useState` is a Hook that allows you to add state to functional components. You can initialize state with a value and use the setter function to update it."
+      ]
+    },
+    "react.useeffect_one": {
+      "questions": [
+        "What does `useEffect` do in React?",
+        "Can you explain the `useEffect` hook in React?"
+      ],
+      "answers": [
+        "`useEffect` is a Hook for managing side effects in functional components, like fetching data, subscriptions, or changing the DOM. It can run after every render or conditionally with dependencies."
+      ]
+    },
+    "react.content_api": {
+      "questions": [
+        "What is the Context API in React?"
+      ],
+      "answers": [
+        "The Context API is a feature that allows data to be shared across components without passing props through every level. It’s useful for themes, user data, and global settings."
+      ]
+    },
+    "react.hoc": {
+      "questions": [
+        "What is a Higher-Order Component (HOC) in React?"
+      ],
+      "answers": [
+        "A Higher-Order Component (HOC) is a function that takes a component and returns a new component. It’s used for reusing component logic, like authentication or logging."
+      ]
+    },
+    "react.controlled_components": {
+      "questions": [
+        "How does React handle forms and controlled components?"
+      ],
+      "answers": [
+        "In controlled components, React handles form input values through state. Each input's value is set by React state, making it easier to manage and validate."
+      ]
+    },
+    "react.prop_drilling": {
+      "questions": [
+        "What is Prop Drilling in React, and how do you solve it?"
+      ],
+      "answers": [
+        "Prop Drilling occurs when data is passed through multiple components, which can be inefficient. Solutions include the Context API and Redux for managing data flow more effectively."
+      ]
+    },
+    "react.fragments": {
+      "questions": [
+        "What are fragments in React, and why use them?"
+      ],
+      "answers": [
+        "Fragments let you return multiple elements without adding extra nodes to the DOM. They’re useful for grouping elements without a wrapper."
+      ]
+    },
+    "react.prop_id": {
+      "questions": [
+        "How does React’s key prop work, and why is it important?"
+      ],
+      "answers": [
+        "The key prop uniquely identifies list items, helping React track elements between updates. It optimizes re-rendering and ensures correct element associations."
+      ]
+    },
+    "react.memo": {
+      "questions": [
+        "What is memoization in React, and when should you use `React.memo`?"
+      ],
+      "answers": [
+        "Memoization optimizes performance by caching results. `React.memo` prevents unnecessary re-renders by only re-rendering when props change."
+      ]
     }
   }
   

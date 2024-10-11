@@ -37,9 +37,34 @@
 </head>
 
 <body>
+  <!-- Modal -->
+  <div class="modal fade" id="maintenanceModal" tabindex="-1" role="dialog" aria-labelledby="maintenanceModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="maintenanceModalLabel">Maintenance Mode</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="maintenance-container">
+            <h1>We'll Be Right Back!</h1>
+            <p>We're currently performing scheduled maintenance. Please check back soon!</p>
+            <div class="loader"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="test-container">
     <div class="container">
-      <div class="row">
+      <div class="row pt-4">
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" id="chat-container">
           <p>Welcome to your ultimate coding companion—where interactive challenges meet skill-building for a sleek,
             effortless learning experience. Dive in and level up! 🚀</p>
@@ -60,6 +85,9 @@
             ensures that you're focusing on key concepts without needing to use exact phrases. It's a great way to
             practice for developer interviews, especially for topics like React, where understanding the core ideas is
             essential.
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#maintenanceModal">
+              Open Maintenance Modal
+            </button>            
           </p>
           <button class="cheet-btn btn btn-primary mt-2 mb-3" type="button" data-toggle="collapse"
             data-target="#keywordGuide" aria-expanded="false" aria-controls="keywordGuide">

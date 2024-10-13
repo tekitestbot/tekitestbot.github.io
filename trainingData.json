@@ -1,176 +1,175 @@
 {
-    "react.intro": {
-      "questions": [
-        "What is React?",
-        "Can you explain what React is?"
-      ],
-      "answers": [
-        "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page."
-      ]
-    },
-    "react.components": {
-      "questions": [
-        "What are components in React?",
-        "Can you explain React components?"
-      ],
-      "answers": [
-        "Components are the building blocks of a React application. They are reusable pieces of code that return a React element to be rendered to the page. Components can be either class-based or function-based."
-      ]
-    },
-    "react.state": {
-      "questions": [
-        "What is state in React?",
-        "Can you explain the concept of state in React?"
-      ],
-      "answers": [
-        "State is a built-in object that stores property values that belong to a component. When the state object changes, the component re-renders. State is used for managing dynamic data in an application."
-      ]
-    },
-    "react.props": {
-      "questions": [
-        "What are props in React?",
-        "Can you explain props in React?"
-      ],
-      "answers": [
-        "Props (short for properties) are read-only attributes used to pass data from one component to another. They are passed to the component in a way similar to arguments passed in a function call."
-      ]
-    },
-    "react.jsx": {
-      "questions": [
-        "What is JSX?",
-        "Can you explain JSX in React?"
-      ],
-      "answers": [
-        "JSX stands for JavaScript XML. It allows us to write HTML inside JavaScript and place them in the DOM without using functions like createElement() or appendChild()."
-      ]
-    },
-    "react.lifecycle_methods": {
-      "questions": [
-        "What are React lifecycle methods?",
-        "Can you explain the lifecycle methods of React components?"
-      ],
-      "answers": [
-        "Lifecycle methods are functions that get called at different stages of a component's life in React. They include methods like componentDidMount, componentDidUpdate, and componentWillUnmount."
-      ]
-    },
-    "react.useeffect": {
-      "questions": [
-        "What is the useEffect hook in React?",
-        "Can you explain useEffect in React?"
-      ],
-      "answers": [
-        "useEffect is a hook in React that allows you to perform side effects in function components. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React class components."
-      ]
-    },
-    "react.virtualdom": {
-      "questions": [
-        "What is the virtual DOM?",
-        "Can you explain the concept of virtual DOM in React?"
-      ],
-      "answers": [
-        "The virtual DOM is a lightweight representation of the real DOM. When the state of an object changes, the virtual DOM changes only the object in the real DOM, rather than reloading the entire DOM. This makes the update process faster."
-      ]
-    },
-    "react.router": {
-      "questions": [
-        "What is React Router?",
-        "Can you explain the use of React Router?"
-      ],
-      "answers": [
-        "React Router is a standard library for routing in React. It enables navigation among views or different components in a React application, allowing for single-page applications with navigation without refreshing the whole page."
-      ]
-    },
-    "react.redux": {
-      "questions": [
-        "What is Redux?",
-        "Can you explain Redux in React?"
-      ],
-      "answers": [
-        "Redux is a predictable state container for JavaScript applications. It helps you manage the state of your application in a consistent way, making it easier to manage and debug. It is often used with React for managing state across the entire application."
-      ]
-    },
-    "react.hooks": {
-      "questions": [
-        "What are React Hooks?",
-        "Can you explain React Hooks?"
-      ],
-      "answers": [
-        "React Hooks are functions that let you use state and other React features in functional components, like `useState` for state management and `useEffect` for side effects. They simplify code and improve reusability."
-      ]
-    },
-    "react.useState": {
-      "questions": [
-        "What is `useState` in React?",
-        "How does the `useState` hook work?"
-      ],
-      "answers": [
-        "`useState` is a Hook that allows you to add state to functional components. You can initialize state with a value and use the setter function to update it."
-      ]
-    },
-    "react.useeffect_one": {
-      "questions": [
-        "What does `useEffect` do in React?",
-        "Can you explain the `useEffect` hook in React?"
-      ],
-      "answers": [
-        "`useEffect` is a Hook for managing side effects in functional components, like fetching data, subscriptions, or changing the DOM. It can run after every render or conditionally with dependencies."
-      ]
-    },
-    "react.content_api": {
-      "questions": [
-        "What is the Context API in React?"
-      ],
-      "answers": [
-        "The Context API is a feature that allows data to be shared across components without passing props through every level. It’s useful for themes, user data, and global settings."
-      ]
-    },
-    "react.hoc": {
-      "questions": [
-        "What is a Higher-Order Component (HOC) in React?"
-      ],
-      "answers": [
-        "A Higher-Order Component (HOC) is a function that takes a component and returns a new component. It’s used for reusing component logic, like authentication or logging."
-      ]
-    },
-    "react.controlled_components": {
-      "questions": [
-        "How does React handle forms and controlled components?"
-      ],
-      "answers": [
-        "In controlled components, React handles form input values through state. Each input's value is set by React state, making it easier to manage and validate."
-      ]
-    },
-    "react.prop_drilling": {
-      "questions": [
-        "What is Prop Drilling in React, and how do you solve it?"
-      ],
-      "answers": [
-        "Prop Drilling occurs when data is passed through multiple components, which can be inefficient. Solutions include the Context API and Redux for managing data flow more effectively."
-      ]
-    },
-    "react.fragments": {
-      "questions": [
-        "What are fragments in React, and why use them?"
-      ],
-      "answers": [
-        "Fragments let you return multiple elements without adding extra nodes to the DOM. They’re useful for grouping elements without a wrapper."
-      ]
-    },
-    "react.prop_id": {
-      "questions": [
-        "How does React’s key prop work, and why is it important?"
-      ],
-      "answers": [
-        "The key prop uniquely identifies list items, helping React track elements between updates. It optimizes re-rendering and ensures correct element associations."
-      ]
-    },
-    "react.memo": {
-      "questions": [
-        "What is memoization in React, and when should you use `React.memo`?"
-      ],
-      "answers": [
-        "Memoization optimizes performance by caching results. `React.memo` prevents unnecessary re-renders by only re-rendering when props change."
-      ]
-    }
+  "react.intro": {
+    "questions": [
+      "What is React?",
+      "Can you explain what React is?"
+    ],
+    "answers": [
+      "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page."
+    ]
+  },
+  "react.components": {
+    "questions": [
+      "What are components in React?",
+      "Can you explain React components?"
+    ],
+    "answers": [
+      "Components are the building blocks of a React application. They are reusable pieces of code that return a React element to be rendered to the page. Components can be either class-based or function-based."
+    ]
+  },
+  "react.state": {
+    "questions": [
+      "What is state in React?",
+      "Can you explain the concept of state in React?"
+    ],
+    "answers": [
+      "State is a built-in object that stores property values that belong to a component. When the state object changes, the component re-renders. State is used for managing dynamic data in an application."
+    ]
+  },
+  "react.props": {
+    "questions": [
+      "What are props in React?",
+      "Can you explain props in React?"
+    ],
+    "answers": [
+      "Props (short for properties) are read-only attributes used to pass data from one component to another. They are passed to the component in a way similar to arguments passed in a function call."
+    ]
+  },
+  "react.jsx": {
+    "questions": [
+      "What is JSX?",
+      "Can you explain JSX in React?"
+    ],
+    "answers": [
+      "JSX stands for JavaScript XML. It allows us to write HTML inside JavaScript and place them in the DOM without using functions like createElement() or appendChild()."
+    ]
+  },
+  "react.lifecycle_methods": {
+    "questions": [
+      "What are React lifecycle methods?",
+      "Can you explain the lifecycle methods of React components?"
+    ],
+    "answers": [
+      "Lifecycle methods are functions that get called at different stages of a component's life in React. They include methods like componentDidMount, componentDidUpdate, and componentWillUnmount."
+    ]
+  },
+  "react.useeffect": {
+    "questions": [
+      "What is the useEffect hook in React?",
+      "Can you explain useEffect in React?"
+    ],
+    "answers": [
+      "useEffect is a hook in React that allows you to perform side effects in function components. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React class components."
+    ]
+  },
+  "react.virtualdom": {
+    "questions": [
+      "What is the virtual DOM?",
+      "Can you explain the concept of virtual DOM in React?"
+    ],
+    "answers": [
+      "The virtual DOM is a lightweight representation of the real DOM. When the state of an object changes, the virtual DOM changes only the object in the real DOM, rather than reloading the entire DOM. This makes the update process faster."
+    ]
+  },
+  "react.router": {
+    "questions": [
+      "What is React Router?",
+      "Can you explain the use of React Router?"
+    ],
+    "answers": [
+      "React Router is a standard library for routing in React. It enables navigation among views or different components in a React application, allowing for single-page applications with navigation without refreshing the whole page."
+    ]
+  },
+  "react.redux": {
+    "questions": [
+      "What is Redux?",
+      "Can you explain Redux in React?"
+    ],
+    "answers": [
+      "Redux is a predictable state container for JavaScript applications. It helps you manage the state of your application in a consistent way, making it easier to manage and debug. It is often used with React for managing state across the entire application."
+    ]
+  },
+  "react.hooks": {
+    "questions": [
+      "What are React Hooks?",
+      "Can you explain React Hooks?"
+    ],
+    "answers": [
+      "React Hooks are functions that let you use state and other React features in functional components, like `useState` for state management and `useEffect` for side effects. They simplify code and improve reusability."
+    ]
+  },
+  "react.useState": {
+    "questions": [
+      "What is `useState` in React?",
+      "How does the `useState` hook work?"
+    ],
+    "answers": [
+      "`useState` is a Hook that allows you to add state to functional components. You can initialize state with a value and use the setter function to update it."
+    ]
+  },
+  "react.useeffect_one": {
+    "questions": [
+      "What does `useEffect` do in React?",
+      "Can you explain the `useEffect` hook in React?"
+    ],
+    "answers": [
+      "`useEffect` is a Hook for managing side effects in functional components, like fetching data, subscriptions, or changing the DOM. It can run after every render or conditionally with dependencies."
+    ]
+  },
+  "react.content_api": {
+    "questions": [
+      "What is the Context API in React?"
+    ],
+    "answers": [
+      "The Context API is a feature that allows data to be shared across components without passing props through every level. It’s useful for themes, user data, and global settings."
+    ]
+  },
+  "react.hoc": {
+    "questions": [
+      "What is a Higher-Order Component (HOC) in React?"
+    ],
+    "answers": [
+      "A Higher-Order Component (HOC) is a function that takes a component and returns a new component. It’s used for reusing component logic, like authentication or logging."
+    ]
+  },
+  "react.controlled_components": {
+    "questions": [
+      "How does React handle forms and controlled components?"
+    ],
+    "answers": [
+      "In controlled components, React handles form input values through state. Each input's value is set by React state, making it easier to manage and validate."
+    ]
+  },
+  "react.prop_drilling": {
+    "questions": [
+      "What is Prop Drilling in React, and how do you solve it?"
+    ],
+    "answers": [
+      "Prop Drilling occurs when data is passed through multiple components, which can be inefficient. Solutions include the Context API and Redux for managing data flow more effectively."
+    ]
+  },
+  "react.fragments": {
+    "questions": [
+      "What are fragments in React, and why use them?"
+    ],
+    "answers": [
+      "Fragments let you return multiple elements without adding extra nodes to the DOM. They’re useful for grouping elements without a wrapper."
+    ]
+  },
+  "react.prop_id": {
+    "questions": [
+      "How does React’s key prop work, and why is it important?"
+    ],
+    "answers": [
+      "The key prop uniquely identifies list items, helping React track elements between updates. It optimizes re-rendering and ensures correct element associations."
+    ]
+  },
+  "react.memo": {
+    "questions": [
+      "What is memoization in React, and when should you use `React.memo`?"
+    ],
+    "answers": [
+      "Memoization optimizes performance by caching results. `React.memo` prevents unnecessary re-renders by only re-rendering when props change."
+    ]
   }
-  
+}

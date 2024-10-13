@@ -62,7 +62,7 @@ const correctAnswers = [
   "The virtual Document Object Model is a lightweight representation of the real Document Object Model. When the state of an object changes, the virtual Document Object Model changes only the object in the real Document Object Model, rather than reloading the entire Document Object Model. This makes the update process faster.",
   "React Router is a standard library for routing in React. It enables navigation among views or different components in a React application, allowing for single-page applications with navigation without refreshing the whole page.",
   "Redux is a predictable state container for JavaScript applications. It helps you manage the state of your application in a consistent way, making it easier to manage and debug. It is often used with React for managing state across the entire application.",
-  //
+  
   "React Hooks are functions that let you use state and other React features in functional components, like `useState` for state management and `useEffect` for side effects. They simplify code and improve reusability.",
   "`useState` is a Hook that allows you to add state to functional components. You can initialize state with a value and use the setter function to update it.",
   "`useEffect` is a Hook for managing side effects in functional components, like fetching data, subscriptions, or changing the DOM. It can run after every render or conditionally with dependencies.",
@@ -86,7 +86,7 @@ const answerKeywords = [
   ["virtual document object model", "lightweight", "real document object model", "update", "faster"],
   ["react router", "routing", "single-page", "navigation", "views"],
   ["redux", "state", "container", "consistent", "manage", "debug"],
-  //
+  
   ["hooks", "functions", "state", "features", "functional components", "useState", "useEffect", "reusability"],
   ["useState", "Hook", "state", "functional components", "initialize", "setter function", "update"],
   ["useEffect", "Hook", "side effects", "functional components", "data fetching", "DOM", "dependencies"],
@@ -116,7 +116,7 @@ function checkAnswer(userAnswer) {
     questionCount++; // Increment question count
 
     // Show alert after every 5 questions
-    // if (questionCount === 5) {
+    // if (questionCount === 10) {
     //   // alert("You've answered 5 questions! Keep going!");
     //   // askForPayment(); 
     //   var maintenanceModal = new bootstrap.Modal(document.getElementById('maintenanceModal'));

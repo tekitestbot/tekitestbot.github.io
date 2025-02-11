@@ -4,8 +4,15 @@ document.getElementById('sendBtn').addEventListener('click', () => {
     addMessage('user', message);
     sendMessageToBot(message);
     document.getElementById('messageInput').value = '';
+    //alert(calculatePercentage(questions.length,questionCount));
+
+    updateProgressBar(calculatePercentage(questions.length,questionCount));
   }
 });
+
+function calculatePercentage(total, part) {
+  return (part / total) * 100;
+}
 
 document.getElementById('messageInput').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
@@ -62,7 +69,7 @@ const correctAnswers = [
   "The virtual Document Object Model is a lightweight representation of the real Document Object Model. When the state of an object changes, the virtual Document Object Model changes only the object in the real Document Object Model, rather than reloading the entire Document Object Model. This makes the update process faster.",
   "React Router is a standard library for routing in React. It enables navigation among views or different components in a React application, allowing for single-page applications with navigation without refreshing the whole page.",
   "Redux is a predictable state container for JavaScript applications. It helps you manage the state of your application in a consistent way, making it easier to manage and debug. It is often used with React for managing state across the entire application.",
-  
+
   "React Hooks are functions that let you use state and other React features in functional components, like `useState` for state management and `useEffect` for side effects. They simplify code and improve reusability.",
   "`useState` is a Hook that allows you to add state to functional components. You can initialize state with a value and use the setter function to update it.",
   "`useEffect` is a Hook for managing side effects in functional components, like fetching data, subscriptions, or changing the DOM. It can run after every render or conditionally with dependencies.",
@@ -86,7 +93,7 @@ const answerKeywords = [
   ["virtual document object model", "lightweight", "real document object model", "update", "faster"],
   ["react router", "routing", "single-page", "navigation", "views"],
   ["redux", "state", "container", "consistent", "manage", "debug"],
-  
+
   ["hooks", "functions", "state", "features", "functional components", "useState", "useEffect", "reusability"],
   ["useState", "Hook", "state", "functional components", "initialize", "setter function", "update"],
   ["useEffect", "Hook", "side effects", "functional components", "data fetching", "DOM", "dependencies"],
@@ -123,7 +130,10 @@ function checkAnswer(userAnswer) {
     //   maintenanceModal.show();
     //   return; // Exit the function to prevent asking another question immediatel
     // }
-    
+
+    // Update live score
+    updateLiveScore(score);
+
     if (currentQuestionIndex < questions.length) {
       setTimeout(() => {
         askNextQuestion();
@@ -136,6 +146,11 @@ function checkAnswer(userAnswer) {
   }
 }
 
+function updateLiveScore(score) {
+  const scoreElement = document.getElementById('score');
+  scoreElement.innerText = `Score: ${score}`;
+}
+
 function askForPayment() {
   // Example payment prompt
   const userConfirmed = confirm("You've answered 5 questions. Please pay to continue.");
@@ -146,6 +161,11 @@ function askForPayment() {
     // Optionally, handle what happens if the user cancels the payment
     alert("You need to complete the payment to continue.");
   }
+}
+
+function updateProgressBar(progress) {
+  const progressBar = document.getElementById("progress-bar");
+  progressBar.style.width = progress + "%";
 }
 
 // function isAnswerCorrect(userAnswer, keywords) { 
@@ -201,7 +221,7 @@ function showFinalScore() {
   refreshBtn.style.cursor = "pointer";
   refreshBtn.style.borderRadius = "5px";
   refreshBtn.onclick = () => location.reload();
-  
+
   document.getElementById('chat-container').appendChild(refreshBtn);
 }
 

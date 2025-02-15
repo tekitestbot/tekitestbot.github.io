@@ -271,3 +271,26 @@ function showFinalScore() {
 window.onload = () => {
   askNextQuestion();
 };
+
+function updateStreak() {
+  const streakElement = document.getElementById('streak-display');
+  let streak = parseInt(localStorage.getItem('streak')) || 0;
+  let lastVisit = localStorage.getItem('lastVisit');
+  const today = new Date().toDateString();
+
+  if (lastVisit === today) {
+    // Already visited today; no change.
+  } else {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    if (lastVisit === yesterday.toDateString()) {
+      streak++;
+    } else {
+      streak = 1;
+    }
+    localStorage.setItem('streak', streak);
+    localStorage.setItem('lastVisit', today);
+  }
+  streakElement.textContent = `🔥${streak} ${streak > 1 ? 's' : ''}`;
+}
+document.addEventListener('DOMContentLoaded', updateStreak);

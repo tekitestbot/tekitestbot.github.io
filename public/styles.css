@@ -266,3 +266,20 @@ canvas {
   padding: 5px 10px;
   cursor: pointer;
 }
+
+#streak-display {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffff;
+  background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+  border: 1px solid #00ffff;
+  padding: 5px 2px;
+  text-align: center;
+  box-shadow: 0 0 10px #00ffff;
+  animation: glow 2s infinite alternate;
+  margin: 20px auto;
+  inline-size: fit-content;
+}
+@keyframes glow {
+  from { box-shadow: 0 0 5px #00ffff; }
+  to { box-shadow: 0 0 20px #00ffff; }
+}

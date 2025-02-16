@@ -151,14 +151,21 @@ const answerKeywords = [
 let currentQuestionIndex = 0;
 let score = 0;
 let questionCount = 0; // Counter for the number of questions asked
+let correctStreak = 0;
 
 function checkAnswer(userAnswer) {
   if (currentQuestionIndex < correctAnswers.length) {
     const keywords = answerKeywords[currentQuestionIndex];
     if (isAnswerCorrect(userAnswer, keywords)) {
       score++;
+      correctStreak++;
+      if (correctStreak >= 3) {
+        document.getElementById("chat").classList.add("neon-border");
+      }
       addMessage('bot', `Correct! ${correctAnswers[currentQuestionIndex]}`);
     } else {
+      correctStreak = 0;
+      document.getElementById("chat").classList.remove("neon-border");
       addMessage('bot', `Incorrect. The correct answer is: ${correctAnswers[currentQuestionIndex]}`);
     }
     currentQuestionIndex++;

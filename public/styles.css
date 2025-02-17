@@ -58,12 +58,14 @@ body {
 }
 
 .user {
-  text-align: right;
+  text-align: left;
   color: #ffffff;
   background-color: #008080;
   padding: 8px 12px;
   border-radius: 0px;
   display: inline-block;
+  float: right;
+  max-width: 70%;
 }
 
 .bot {
@@ -73,6 +75,7 @@ body {
   padding: 8px 12px;
   border-radius: 0px;
   display: inline-block;
+  max-width: 70%;
 }
 
 #messageInput {

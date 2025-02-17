@@ -64,10 +64,22 @@ document.getElementById('messageInput').addEventListener('keypress', (e) => {
 
 function addMessage(sender, message) {
   const chat = document.getElementById('chat');
+
+  // Create row wrapper
+  const rowDiv = document.createElement('div');
+  rowDiv.className = 'row m-0 mb-3';
+  rowDiv.style = "display: block; width: 100%; min-height: 40px;"
+
+  // Create message div
   const messageDiv = document.createElement('div');
   messageDiv.className = sender;
   messageDiv.innerText = message;
-  chat.appendChild(messageDiv);
+
+  // Append message div inside row div
+  rowDiv.appendChild(messageDiv);
+
+  // Append row div to chat
+  chat.appendChild(rowDiv);
   chat.scrollTop = chat.scrollHeight;
 }
 

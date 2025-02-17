@@ -298,6 +298,6 @@ function updateStreak() {
     localStorage.setItem('streak', streak);
     localStorage.setItem('lastVisit', today);
   }
-  streakElement.textContent = `🔥${streak} ${streak > 1 ? 's' : ''}`;
+  streakElement.textContent = `🔥${streak}`;
 }
 document.addEventListener('DOMContentLoaded', updateStreak);

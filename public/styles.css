@@ -274,10 +274,10 @@ canvas {
   font-family: 'Orbitron', sans-serif;
   color: #00ffff;
   background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
-  border: 1px solid #00ffff;
+  border: 1px solid linear-gradient(180deg, #8a2be2, #008080);
   padding: 10px;
   text-align: center;
-  box-shadow: 0 0 10px #00ffff;
+  box-shadow: 0 0 10px linear-gradient(180deg, #8a2be2, #008080);
   animation: glow 2s infinite alternate;
   inline-size: fit-content;
   position: absolute;
@@ -285,23 +285,25 @@ canvas {
   left: 0;
 }
 @keyframes glow {
-  from { box-shadow: 0 0 5px #00ffff; }
-  to { box-shadow: 0 0 20px #00ffff; }
+  from { box-shadow: 0 0 5px linear-gradient(180deg, #8a2be2, #008080); }
+  to { box-shadow: 0 0 20px linear-gradient(180deg, #008080, #8a2be2); }
 }
 
 .neon-border {
-  border: 3px solid #00ffea !important;
-  box-shadow: 0 0 5px #00ffea, 0 0 10px #00ffea;
+  border: 3px solid #008080 !important;
+  box-shadow: 0 0 2px #008080, 0 0 2px #008080;
   transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
   animation: pulseGlow 1.5s infinite alternate ease-in-out;
 }
 
 @keyframes pulseGlow {
   0% {
-      box-shadow: 0 0 5px #00ffea, 0 0 10px #00ffea;
+    border-color: #008080;
+    box-shadow: 0 0 2px #008080, 0 0 5px #008080;
   }
   100% {
-      box-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+    border-color: #8a2be2;
+    box-shadow: 0 0 2px #8a2be2, 0 0 5px #8a2be2;
   }
 }
 

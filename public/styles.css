@@ -12,6 +12,7 @@ body {
 }
 
 .test-container {
+  /* background: url('tekisolutions_b-50.png'), url('black-harrier.jpg'); */
   background: url('tekisolutions_b-50.png');
   background-position: center right;
   background-size: object-fit;
@@ -55,6 +56,8 @@ body {
 
 #chat div {
   margin-bottom: 10px;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .user {
@@ -234,7 +237,8 @@ section {
 }
 
 #score {
-  color: #008080; /* Change color to your preferred score color */
+  color: #008080;
+  /* Change color to your preferred score color */
 }
 
 .confetti-container {
@@ -262,6 +266,7 @@ canvas {
   padding: 10px;
   display: none;
 }
+
 .cookie-banner button {
   background: #008080;
   color: #fff;
@@ -284,9 +289,15 @@ canvas {
   float: left;
   left: 0;
 }
+
 @keyframes glow {
-  from { box-shadow: 0 0 5px linear-gradient(180deg, #8a2be2, #008080); }
-  to { box-shadow: 0 0 20px linear-gradient(180deg, #008080, #8a2be2); }
+  from {
+    box-shadow: 0 0 5px linear-gradient(180deg, #8a2be2, #008080);
+  }
+
+  to {
+    box-shadow: 0 0 20px linear-gradient(180deg, #008080, #8a2be2);
+  }
 }
 
 .neon-border {
@@ -301,6 +312,7 @@ canvas {
     border-color: #008080;
     box-shadow: 0 0 2px #008080, 0 0 5px #008080;
   }
+
   100% {
     border-color: #8a2be2;
     box-shadow: 0 0 2px #8a2be2, 0 0 5px #8a2be2;
@@ -309,25 +321,62 @@ canvas {
 
 /* Sleek vertical scrollbar */
 ::-webkit-scrollbar {
-  width: 8px; /* Thin and modern */
+  width: 8px;
+  /* Thin and modern */
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a; /* Dark background */
+  background: #0a0a0a;
+  /* Dark background */
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8a2be2, #008080); /* Purple to green gradient */
+  background: linear-gradient(180deg, #8a2be2, #008080);
+  /* Purple to green gradient */
   border-radius: 10px;
   transition: background 0.3s ease-in-out;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #a855f7, #008080); /* Brighter hover effect */
+  background: linear-gradient(180deg, #a855f7, #008080);
+  /* Brighter hover effect */
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#chat .user{
+  animation: fadeInScale 0.3s ease-out;
+}
+
+#chat .user{
+  animation: fadeInScale 0.5s ease-out;
+}
+
+.typing-indicator span {
+  animation: blink 1.5s infinite;
+  opacity: 0;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: 0s; }
+.typing-indicator span:nth-child(2) { animation-delay: 0.3s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }

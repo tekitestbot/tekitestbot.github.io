@@ -313,3 +313,26 @@ function updateStreak() {
   streakElement.textContent = `🔥${streak}`;
 }
 document.addEventListener('DOMContentLoaded', updateStreak);
+
+const messageInput = document.getElementById('messageInput');
+let typingIndicator;
+
+messageInput.addEventListener('input', () => {
+  if (!typingIndicator) {
+    typingIndicator = document.createElement('div');
+    typingIndicator.className = 'user typing-indicator';
+    typingIndicator.innerHTML = '<span>.</span><span>.</span><span>.</span>';
+    document.getElementById('chat').appendChild(typingIndicator);
+  }
+
+  clearTimeout(typingIndicator.timeout);
+  typingIndicator.timeout = setTimeout(() => {
+    if (typingIndicator) {
+      typingIndicator.remove();
+      typingIndicator = null;
+    }
+  }, 1000);
+
+  const chat = document.getElementById('chat');
+  chat.scrollTop = chat.scrollHeight;
+});

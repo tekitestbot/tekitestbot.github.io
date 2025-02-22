@@ -336,3 +336,23 @@ messageInput.addEventListener('input', () => {
   const chat = document.getElementById('chat');
   chat.scrollTop = chat.scrollHeight;
 });
+
+document.getElementById("tipBtn").addEventListener("click", function () {
+  document.getElementById("tipBox").style.display = "block";
+  score -= 0.5; // Deduct points
+  updateTipBox();
+});
+
+document.getElementById("closeTip").addEventListener("click", function () {
+  document.getElementById("tipBox").style.display = "none";
+  const tipBox = document.getElementById("tipBoxInner");
+  tipBox.innerHTML = "";
+});
+
+function updateTipBox() {
+  const tipBox = document.getElementById("tipBoxInner");
+  const keywords = answerKeywords[currentQuestionIndex].filter(keyword => keyword.length > 2);
+  const hints = document.createElement("p");
+  hints.innerHTML = "<strong>Hint:</strong> " + keywords.join(", ");
+  tipBox.appendChild(hints);
+}

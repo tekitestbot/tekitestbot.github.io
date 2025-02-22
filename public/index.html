@@ -33,6 +33,7 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Source+Code+Pro:wght@400;500&display=swap"
     rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -69,12 +70,24 @@
           <p>Welcome to your ultimate coding companion—where interactive challenges meet skill-building for a sleek,
             effortless learning experience. Dive in and level up! 🚀</p>
           <h1>Teki Test Bot</h1>
-          <div id="chat"></div>
+          <div id="chat">
+          </div>
           <div style="display: flex;">
             <!-- <input type="text" id="messageInput" placeholder="Type a message..." /> -->
             <textarea id="messageInput" placeholder="Type a message..." name="messageInput" rows="1">
             </textarea>
-            <button id="sendBtn">Send</button>
+            <button tooltip="Send" id="sendBtn">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <button title="Show keywords (-0.5)" id="tipBtn">
+              <i class="fa-solid fa-lightbulb"></i>
+            </button>
+            <div id="tipBox" class="hidden">
+              <span id="closeTip"><i class="fa-solid fa-times"></i></span>
+              <div id="tipBoxInner">
+
+              </div>
+            </div>
             <div id="progress-container">
               <div id="progress-bar"></div>
             </div>

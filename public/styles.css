@@ -11,6 +11,10 @@ body {
   color: #fff;
 }
 
+* {
+  transition: all 0.3s ease;
+}
+
 .test-container {
   /* background: url('tekisolutions_b-50.png'), url('black-harrier.jpg'); */
   background: url('tekisolutions_b-50.png');
@@ -114,6 +118,26 @@ body {
 
 #sendBtn:focus {
   border: 1px solid #005999;
+}
+
+#tipBtn {
+  padding: 10px 20px;
+  background-color: #000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0px;
+  margin-left: 10px;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+#tipBtn:hover {
+  background-color: #252526;
+}
+
+#tipBtn:focus {
+  border: 1px solid #000;
 }
 
 h1 {
@@ -379,4 +403,58 @@ html {
 @keyframes blink {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
+}
+
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #000;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+#tipBox {
+  position: absolute;
+  right: -23%;  
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  border: 1px solid #008080;
+  padding: 10px;
+  display: none;
+  z-index: 100;
+}
+
+#closeTip{
+  color: #008080;
+}
+
+#tipBox span {
+  cursor: pointer;
+  float: right;
+  font-size: 18px;
+}
+
+.hidden {
+  display: none;
 }

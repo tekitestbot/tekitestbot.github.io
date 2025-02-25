@@ -171,5 +171,50 @@
     "answers": [
       "Memoization optimizes performance by caching results. `React.memo` prevents unnecessary re-renders by only re-rendering when props change."
     ]
+  },
+  "typescript.intro": {
+    "questions": [
+      "What is TypeScript?",
+      "Can you explain TypeScript?"
+    ],
+    "answers": [
+      "TypeScript is a strongly typed programming language that builds on JavaScript, adding static type definitions."
+    ]
+  },
+  "typescript.types": {
+    "questions": [
+      "What are types in TypeScript?",
+      "Can you explain TypeScript types?"
+    ],
+    "answers": [
+      "Types in TypeScript define the shape of data, such as string, number, boolean, array, and custom types using interfaces or type aliases."
+    ]
+  },
+  "typescript.interfaces": {
+    "questions": [
+      "What are interfaces in TypeScript?",
+      "How do interfaces work in TypeScript?"
+    ],
+    "answers": [
+      "Interfaces in TypeScript define the structure of an object, specifying required properties and their types to enforce type safety."
+    ]
+  },
+  "typescript.functions": {
+    "questions": [
+      "How do functions work in TypeScript?",
+      "Can you explain functions in TypeScript?"
+    ],
+    "answers": [
+      "Functions in TypeScript support type annotations for parameters and return values, ensuring correctness and reducing runtime errors."
+    ]
+  },
+  "typescript.generics": {
+    "questions": [
+      "What are generics in TypeScript?",
+      "Can you explain generics?"
+    ],
+    "answers": [
+      "Generics in TypeScript allow functions, classes, and interfaces to work with multiple data types while maintaining type safety."
+    ]
   }
 }

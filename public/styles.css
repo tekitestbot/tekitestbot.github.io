@@ -458,3 +458,59 @@ html {
 .hidden {
   display: none;
 }
+
+#languageSelector {
+  background-color: #1e1e1e;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #008080;
+  width: 180px;
+  appearance: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  font-size: 14px;
+}
+
+#languageSelector:focus {
+  outline: none;
+  border-color: #00ffff;
+  background-color: #252526;
+}
+
+#languageSelector option {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 10px;
+  border: none;
+}
+
+#languageSelector:hover {
+  transform: scale(1.05);
+  background-color: #2d2d2d;
+  border-color: #008080;
+}
+
+/* Tooltip for the language selector */
+#languageSelector::after {
+  content: "Select Language";
+  position: absolute;
+  right: -5px;
+  top: 0;
+  background: #008080;
+  color: white;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#languageSelector:hover::after {
+  visibility: visible;
+  opacity: 1;
+  top: -20px;
+}

@@ -88,7 +88,7 @@ async function sendMessageToBot(message) {
   checkAnswer(message);
 }
 
-const questions = [
+const questionsReact = [
   "What is React?",
   "Can you explain React components?",
   "What is state in React?",
@@ -112,7 +112,7 @@ const questions = [
   "What is memoization in React, and when should you use `React.memo`?"
 ];
 
-const correctAnswers = [
+const correctAnswersReact = [
   "React is a JavaScript library for building user interfaces. It allows developers to create large web applications that can change data, without reloading the page.",
   "Components are the building blocks of a React application. They are reusable pieces of code that return a React element to be rendered to the page. Components can be either class-based or function-based.",
   "State is a built-in object that stores property values that belong to a component. When the state object changes, the component re-renders. State is used for managing dynamic data in an application.",
@@ -136,7 +136,7 @@ const correctAnswers = [
   "Memoization optimizes performance by caching results. `React.memo` prevents unnecessary re-renders by only re-rendering when props change."
 ];
 
-const answerKeywords = [
+const answerKeywordsReact = [
   ["react", "javascript", "library", "user interfaces"],
   ["components", "building", "blocks", "react", "applications", "reusable"],
   ["state", "built-in", "object", "component", "re-renders", "dynamic"],
@@ -160,10 +160,82 @@ const answerKeywords = [
   ["memoization", "optimize", "performance", "caching", "React.memo", "re-renders", "props change"]
 ];
 
+const questionsTypescript = [
+  "What is TypeScript?",
+  "What are the advantages of using TypeScript over JavaScript?",
+  "What is type inference in TypeScript?",
+  "What is a tuple in TypeScript?",
+  "What are generics in TypeScript?"
+];
+
+const correctAnswersTypescript = [
+  "TypeScript is a superset of JavaScript that adds static types. It compiles down to JavaScript and is designed to catch errors early.",
+  "TypeScript offers better tooling and type safety compared to JavaScript, allowing for more robust code with fewer bugs.",
+  "TypeScript can infer types based on the initial value, making it easier to work with variables without explicitly defining their types.",
+  "A tuple in TypeScript is an array with a fixed number of elements of different types.",
+  "Generics allow you to write flexible and reusable code by defining types that are specified at the time of usage."
+];
+
+const answerKeywordsTypescript = [
+  ["typescript", "superset", "javascript", "types", "static"],
+  ["advantages", "typescript", "better", "tooling", "type safety"],
+  ["type inference", "typescript", "initial value", "automatic"],
+  ["tuple", "fixed", "array", "different types"],
+  ["generics", "reusable", "flexible", "code"]
+];
+
+
 let currentQuestionIndex = 0;
 let score = 0;
 let questionCount = 0; // Counter for the number of questions asked
 let correctStreak = 0;
+// let currentLanguage = 'react';
+
+// Check query parameter for language selection
+const urlParams = new URLSearchParams(window.location.search);
+const queryLanguage = urlParams.get('lang');
+
+// Default to 'react' if no query parameter or invalid one is passed
+let currentLanguage = queryLanguage === 'typescript' ? 'typescript' : 'react';
+
+// Set the initial language in the dropdown
+document.getElementById("languageSelector").value = currentLanguage;
+
+// Event handler for language change
+document.getElementById("languageSelector").addEventListener("change", function () {
+  currentLanguage = this.value;
+
+  // Update the query parameter in the URL to reflect the selected language
+  const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?lang=" + currentLanguage;
+  window.history.pushState({ path: newUrl }, '', newUrl);
+  
+  // Refresh questions based on the selected language
+  renderQuestions();
+});
+
+// Function to render the questions based on the selected language
+function renderQuestions(firstLoad = false) {
+  if (currentLanguage === 'react') {
+    questions = questionsReact; // Assuming you have a separate list for React questions
+    correctAnswers = correctAnswersReact;
+    answerKeywords = answerKeywordsReact;
+  } else if (currentLanguage === 'typescript') {
+    questions = questionsTypescript;
+    correctAnswers = correctAnswersTypescript;
+    answerKeywords = answerKeywordsTypescript;
+  }
+
+  // Reset the question index and start the quiz
+  currentQuestionIndex = 0;
+  score = 0;
+  questionCount = 0;
+
+  // Call to display the first question (or whatever logic you use to start the quiz)
+  if(firstLoad){
+    askNextQuestion();
+  }
+  
+}
 
 function checkAnswer(userAnswer) {
   if (currentQuestionIndex < correctAnswers.length) {
@@ -207,6 +279,54 @@ function checkAnswer(userAnswer) {
     }
   }
 }
+
+// function checkAnswer(userAnswer) {
+//   // Determine which question set to use based on the selected language
+//   const questions = selectedLanguage === 'typescript' ? questionsTypescript : questionsReact;
+//   const correctAnswers = selectedLanguage === 'typescript' ? correctAnswersTypescript : correctAnswersReact;
+//   const answerKeywords = selectedLanguage === 'typescript' ? answerKeywordsTypescript : answerKeywordsReact;
+
+//   if (currentQuestionIndex < correctAnswers.length) {
+//     const keywords = answerKeywords[currentQuestionIndex];
+//     if (isAnswerCorrect(userAnswer, keywords)) {
+//       score++;
+//       correctStreak++;
+//       if (correctStreak >= 3) {
+//         document.getElementById("chat").classList.add("neon-border");
+//       }
+//       addMessage('bot', `Correct! ${correctAnswers[currentQuestionIndex]}`);
+//     } else {
+//       correctStreak = 0;
+//       document.getElementById("chat").classList.remove("neon-border");
+//       addMessage('bot', `Incorrect. The correct answer is: ${correctAnswers[currentQuestionIndex]}`);
+//     }
+//     currentQuestionIndex++;
+//     questionCount++; // Increment question count
+
+//     // Show alert after every 5 questions
+//     // if (questionCount === 10) {
+//     //   // alert("You've answered 5 questions! Keep going!");
+//     //   // askForPayment(); 
+//     //   var maintenanceModal = new bootstrap.Modal(document.getElementById('maintenanceModal'));
+//     //   maintenanceModal.show();
+//     //   return; // Exit the function to prevent asking another question immediately
+//     // }
+
+//     // Update live score
+//     updateLiveScore(score);
+
+//     if (currentQuestionIndex < questions.length) {
+//       setTimeout(() => {
+//         askNextQuestion();
+//       }, 1000);
+//     } else {
+//       setTimeout(() => {
+//         showFinalScore();
+//         endTest();
+//       }, 1000);
+//     }
+//   }
+// }
 
 function updateLiveScore(score) {
   const scoreElement = document.getElementById('score');
@@ -267,6 +387,11 @@ function askNextQuestion() {
     addMessage('bot', questions[currentQuestionIndex]);
   }
 }
+// function askNextQuestion() {
+//   if (currentQuestionIndex < (currentLanguage === 'typescript' ? questionsTypescript.length : questions.length)) {
+//     addMessage('bot', currentLanguage === 'typescript' ? questionsTypescript[currentQuestionIndex] : questions[currentQuestionIndex]);
+//   }
+// }
 
 function showFinalScore() {
   addMessage('bot', `You've completed the test! Your score is ${score}/${questions.length}.`);
@@ -288,6 +413,7 @@ function showFinalScore() {
 }
 
 window.onload = () => {
+  renderQuestions(false);
   askNextQuestion();
 };
 
@@ -356,3 +482,14 @@ function updateTipBox() {
   hints.innerHTML = "<strong>Hint:</strong> " + keywords.join(", ");
   tipBox.appendChild(hints);
 }
+
+// function updateTipBox() {
+//   const tipBox = document.getElementById("tipBoxInner");
+//   const keywords = currentLanguage === 'typescript' 
+//     ? answerKeywordsTypescript[currentQuestionIndex].filter(keyword => keyword.length > 2)
+//     : answerKeywords[currentQuestionIndex].filter(keyword => keyword.length > 2);
+  
+//   const hints = document.createElement("p");
+//   hints.innerHTML = "<strong>Hint:</strong> " + keywords.join(", ");
+//   tipBox.appendChild(hints);
+// }

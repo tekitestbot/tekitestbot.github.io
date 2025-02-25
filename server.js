@@ -22,6 +22,21 @@ Object.keys(trainingData).forEach(intent => {
     manager.addAnswer('en', intent, answer);
   });
 });
+// Object.keys(trainingData).forEach(topic => {
+//   Object.keys(trainingData[topic]).forEach(intent => {
+//     const intentData = trainingData[topic][intent];
+//     if (intentData && Array.isArray(intentData.questions) && Array.isArray(intentData.answers)) {
+//       intentData.questions.forEach(question => {
+//         manager.addDocument('en', question, `${topic}.${intent}`);
+//       });
+//       intentData.answers.forEach(answer => {
+//         manager.addAnswer('en', `${topic}.${intent}`, answer);
+//       });
+//     } else {
+//       console.warn(`Missing questions or answers for ${topic}.${intent}`);
+//     }
+//   });
+// });
 
 (async () => {
   try {

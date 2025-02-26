@@ -62,26 +62,71 @@ document.getElementById('messageInput').addEventListener('keypress', (e) => {
   }
 });
 
+// Global variables for bot message queue and typing status
+let isBotTyping = false;
+let botMessageQueue = [];
+
 function addMessage(sender, message) {
+
+  document.getElementById('messageInput').disabled = true;
+
+  // If it's a bot message and one is already typing, queue it
+  if (sender === 'bot') {
+    if (isBotTyping) {
+      botMessageQueue.push({ sender, message });
+      return;
+    } else {
+      isBotTyping = true;
+      document.getElementById("messageInput").disabled = true;
+    }
+  }
+  
   const chat = document.getElementById('chat');
 
   // Create row wrapper
   const rowDiv = document.createElement('div');
   rowDiv.className = 'row m-0 mb-3';
-  rowDiv.style = "display: block; width: 100%; min-height: 40px;"
+  rowDiv.style = "display: block; width: 100%; min-height: 40px;";
 
   // Create message div
   const messageDiv = document.createElement('div');
   messageDiv.className = sender;
-  messageDiv.innerText = message;
-
-  // Append message div inside row div
+  // Preserve spaces for bot messages
+  if (sender === 'bot') {
+    messageDiv.style.whiteSpace = 'pre-wrap';
+  }
+  
   rowDiv.appendChild(messageDiv);
-
-  // Append row div to chat
   chat.appendChild(rowDiv);
   chat.scrollTop = chat.scrollHeight;
+
+  if (sender === 'bot') {
+    // Typing animation: reveal one character at a time
+    let index = 0;
+    const typingInterval = setInterval(() => {
+      messageDiv.innerText += message.charAt(index);
+      index++;
+      chat.scrollTop = chat.scrollHeight;
+      if (index >= message.length) {
+        clearInterval(typingInterval);
+        // Bot finished typing: reset and re-enable the input
+        isBotTyping = false;
+        document.getElementById("messageInput").disabled = false;
+        // Process next bot message in queue, if any
+        if (botMessageQueue.length > 0) {
+          const next = botMessageQueue.shift();
+          addMessage(next.sender, next.message);
+        }
+      }
+    }, 50); // Adjust speed as needed
+  } else {
+    messageDiv.innerText = message;
+  }
+  
+  chat.scrollTop = chat.scrollHeight;
+  document.getElementById('messageInput').disabled = false;
 }
+
 
 async function sendMessageToBot(message) {
   // Simulating a bot response for the sake of the example
@@ -189,14 +234,14 @@ let currentQuestionIndex = 0;
 let score = 0;
 let questionCount = 0; // Counter for the number of questions asked
 let correctStreak = 0;
-// let currentLanguage = 'react';
+let currentLanguage = 'react';
 
 // Check query parameter for language selection
 const urlParams = new URLSearchParams(window.location.search);
 const queryLanguage = urlParams.get('lang');
 
 // Default to 'react' if no query parameter or invalid one is passed
-let currentLanguage = queryLanguage === 'typescript' ? 'typescript' : 'react';
+currentLanguage = queryLanguage === 'typescript' ? 'typescript' : 'react';
 
 // Set the initial language in the dropdown
 document.getElementById("languageSelector").value = currentLanguage;
@@ -208,6 +253,13 @@ document.getElementById("languageSelector").addEventListener("change", function 
   // Update the query parameter in the URL to reflect the selected language
   const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?lang=" + currentLanguage;
   window.history.pushState({ path: newUrl }, '', newUrl);
+
+  score = 0;
+  currentQuestionIndex = 0;
+  questionCount = 0;
+  updateProgressBar(0);
+  document.getElementById("chat").innerHTML = "";
+  askNextQuestion();
   
   // Refresh questions based on the selected language
   renderQuestions();
@@ -280,54 +332,6 @@ function checkAnswer(userAnswer) {
   }
 }
 
-// function checkAnswer(userAnswer) {
-//   // Determine which question set to use based on the selected language
-//   const questions = selectedLanguage === 'typescript' ? questionsTypescript : questionsReact;
-//   const correctAnswers = selectedLanguage === 'typescript' ? correctAnswersTypescript : correctAnswersReact;
-//   const answerKeywords = selectedLanguage === 'typescript' ? answerKeywordsTypescript : answerKeywordsReact;
-
-//   if (currentQuestionIndex < correctAnswers.length) {
-//     const keywords = answerKeywords[currentQuestionIndex];
-//     if (isAnswerCorrect(userAnswer, keywords)) {
-//       score++;
-//       correctStreak++;
-//       if (correctStreak >= 3) {
-//         document.getElementById("chat").classList.add("neon-border");
-//       }
-//       addMessage('bot', `Correct! ${correctAnswers[currentQuestionIndex]}`);
-//     } else {
-//       correctStreak = 0;
-//       document.getElementById("chat").classList.remove("neon-border");
-//       addMessage('bot', `Incorrect. The correct answer is: ${correctAnswers[currentQuestionIndex]}`);
-//     }
-//     currentQuestionIndex++;
-//     questionCount++; // Increment question count
-
-//     // Show alert after every 5 questions
-//     // if (questionCount === 10) {
-//     //   // alert("You've answered 5 questions! Keep going!");
-//     //   // askForPayment(); 
-//     //   var maintenanceModal = new bootstrap.Modal(document.getElementById('maintenanceModal'));
-//     //   maintenanceModal.show();
-//     //   return; // Exit the function to prevent asking another question immediately
-//     // }
-
-//     // Update live score
-//     updateLiveScore(score);
-
-//     if (currentQuestionIndex < questions.length) {
-//       setTimeout(() => {
-//         askNextQuestion();
-//       }, 1000);
-//     } else {
-//       setTimeout(() => {
-//         showFinalScore();
-//         endTest();
-//       }, 1000);
-//     }
-//   }
-// }
-
 function updateLiveScore(score) {
   const scoreElement = document.getElementById('score');
   scoreElement.innerText = `Score: ${score}`;
@@ -345,30 +349,30 @@ function askForPayment() {
   }
 }
 
+let currentProgressValue = 0;
+
 function updateProgressBar(progress) {
   const progressBar = document.getElementById("progress-bar");
   progressBar.style.width = progress + "%";
+
+  const progressCounter = document.getElementById("progressPercentCounter");
+  progressCounter.style.color = "#008080"; // plain color
+
+  // Animate count up from currentProgressValue to the new progress
+  const frames = 30;
+  const increment = (progress - currentProgressValue) / frames;
+  let frame = 0;
+  const animationInterval = setInterval(() => {
+    frame++;
+    const currentValue = Math.round(currentProgressValue + increment * frame);
+    progressCounter.innerText = currentValue + "%";
+    if (frame >= frames) {
+      clearInterval(animationInterval);
+      currentProgressValue = progress;
+    }
+  }, 20); // 20ms per frame (approx 600ms total)
 }
 
-// function isAnswerCorrect(userAnswer, keywords) { 
-//   const normalizedUserAnswer = userAnswer.toLowerCase().trim();
-
-//   // Check if all relevant keywords are present in the user's answer
-//   return keywords.every(keyword => {
-//     const regex = new RegExp(`\\b${keyword}\\b`);
-//     return regex.test(normalizedUserAnswer);
-//   });
-// }
-
-// function isAnswerCorrect(userAnswer, keywords) {
-//   const normalizedUserAnswer = userAnswer.toLowerCase();
-
-//   // Check if all relevant keywords are present in the user's answer
-//   return keywords.every(keyword => {
-//     const keywordLower = keyword.toLowerCase();
-//     return normalizedUserAnswer.includes(keywordLower);
-//   });
-// }
 function isAnswerCorrect(userAnswer, keywords) {
   const normalizedUserAnswer = userAnswer.toLowerCase().trim();
 
@@ -387,11 +391,6 @@ function askNextQuestion() {
     addMessage('bot', questions[currentQuestionIndex]);
   }
 }
-// function askNextQuestion() {
-//   if (currentQuestionIndex < (currentLanguage === 'typescript' ? questionsTypescript.length : questions.length)) {
-//     addMessage('bot', currentLanguage === 'typescript' ? questionsTypescript[currentQuestionIndex] : questions[currentQuestionIndex]);
-//   }
-// }
 
 function showFinalScore() {
   addMessage('bot', `You've completed the test! Your score is ${score}/${questions.length}.`);
@@ -413,6 +412,7 @@ function showFinalScore() {
 }
 
 window.onload = () => {
+  updateTipContent();
   renderQuestions(false);
   askNextQuestion();
 };
@@ -483,13 +483,50 @@ function updateTipBox() {
   tipBox.appendChild(hints);
 }
 
-// function updateTipBox() {
-//   const tipBox = document.getElementById("tipBoxInner");
-//   const keywords = currentLanguage === 'typescript' 
-//     ? answerKeywordsTypescript[currentQuestionIndex].filter(keyword => keyword.length > 2)
-//     : answerKeywords[currentQuestionIndex].filter(keyword => keyword.length > 2);
+// Function to update tip content based on selected language
+function updateTipContent() {
+  const tipButton = document.getElementById('tipButton');
+  const tipContent = document.getElementById('tipContent');
   
-//   const hints = document.createElement("p");
-//   hints.innerHTML = "<strong>Hint:</strong> " + keywords.join(", ");
-//   tipBox.appendChild(hints);
-// }
+  if (currentLanguage === 'typescript') {
+    tipButton.innerText = "Show TypeScript Keyword Cheat Sheet";
+    tipContent.innerHTML = `<h2>TypeScript Keyword Cheat Sheet</h2>
+      <ul>
+        <li><b>What is TypeScript?</b> - Include: TypeScript, superset, JavaScript, types, static.</li>
+        <li><b>Advantages of TypeScript:</b> - Include: advantages, TypeScript, better, tooling, type safety.</li>
+        <li><b>Type Inference:</b> - Include: type inference, TypeScript, initial value, automatic.</li>
+        <li><b>Tuple in TypeScript:</b> - Include: tuple, fixed, array, different types.</li>
+        <li><b>Generics:</b> - Include: generics, reusable, flexible, code.</li>
+      </ul>`;
+  } else {
+    tipButton.innerText = "Show React Keyword Cheat Sheet";
+    tipContent.innerHTML = `<h2>React Keyword Cheat Sheet</h2>
+      <ul>
+        <li><b>What is React?</b> - Include: React, JavaScript, library, user interfaces, data, reloading.</li>
+        <li><b>React Components:</b> - Include: components, reusable, building blocks, function-based, class-based.</li>
+        <li><b>State in React:</b> - Include: state, built-in object, component, re-renders, dynamic data.</li>
+        <li><b>Props in React:</b> - Include: props, properties, read-only, pass data, component.</li>
+        <li><b>JSX:</b> - Include: JSX, JavaScript XML, HTML, inside JavaScript, DOM.</li>
+        <li><b>React Lifecycle Methods:</b> - Include: lifecycle methods, stages, mount, update, unmount.</li>
+        <li><b>Effect Hook:</b> - Include: effect hook, side effects, functional components.</li>
+        <li><b>Virtual DOM:</b> - Include: virtual DOM, lightweight, update, faster.</li>
+        <li><b>React Router:</b> - Include: React Router, routing, single-page application, navigation.</li>
+        <li><b>Redux:</b> - Include: Redux, state, container, consistent, debug, manage.</li>
+        <li><b>React Hooks:</b> - Include: hooks, functions, state, features, functional components, useState, useEffect, reusability.</li>
+        <li><b>&#39;useState&#39;:</b> - Include: useState, Hook, state, functional components, initialize, setter function, update.</li>
+        <li><b>&#39;useEffect&#39;:</b> - Include: useEffect, Hook, side effects, functional components, data fetching, DOM, dependencies.</li>
+        <li><b>Context API:</b> - Include: Context API, data sharing, components, props, themes, user data, global settings.</li>
+        <li><b>Higher-Order Component (HOC):</b> - Include: Higher-Order Component, HOC, function, returns, component, reusability, authentication, logic.</li>
+        <li><b>Forms & Controlled Components:</b> - Include: forms, controlled components, input values, state, manage, validate.</li>
+        <li><b>Prop Drilling:</b> - Include: Prop Drilling, data, components, Context API, Redux, data flow, manage.</li>
+        <li><b>Fragments:</b> - Include: fragments, multiple elements, extra nodes, DOM, grouping, wrapper.</li>
+        <li><b>Key Prop:</b> - Include: key prop, uniquely identifies, list items, track elements, updates, optimize, re-rendering.</li>
+        <li><b>Memoization:</b> - Include: memoization, optimize, performance, caching, React.memo, re-renders, props change.</li>
+      </ul>`;
+  }
+}
+
+document.getElementById('languageSelector').addEventListener('change', function() {
+  currentLanguage = this.value;
+  updateTipContent();
+});

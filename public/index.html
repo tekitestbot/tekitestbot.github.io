@@ -74,12 +74,14 @@
             <option value="react">React</option>
             <option value="typescript">TypeScript</option>
           </select>
+          <div id="progressPercentCounter"></div>
+          <div id="progress-container">
+            <div id="progress-bar"></div>
+          </div>
           <div id="chat">
           </div>
           <div style="display: flex;">
-            <!-- <input type="text" id="messageInput" placeholder="Type a message..." /> -->
-            <textarea id="messageInput" placeholder="Type a message..." name="messageInput" rows="1">
-            </textarea>
+            <textarea id="messageInput" placeholder="Type a message..." name="messageInput" rows="1"></textarea>
             <button tooltip="Send" id="sendBtn">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
@@ -91,9 +93,6 @@
               <div id="tipBoxInner">
 
               </div>
-            </div>
-            <div id="progress-container">
-              <div id="progress-bar"></div>
             </div>
             <div id="score-container">
               <span id="score">Score: 0</span>
@@ -114,46 +113,13 @@
               Open Maintenance Modal
             </button>             -->
           </p>
-          <button class="cheet-btn btn btn-primary mt-2 mb-3" type="button" data-toggle="collapse"
+          <button id="tipButton" class="cheet-btn btn btn-primary mt-2 mb-3" type="button" data-toggle="collapse"
             data-target="#keywordGuide" aria-expanded="false" aria-controls="keywordGuide">
             Show React Keyword Cheat Sheet
           </button>
           <div class="collapse" id="keywordGuide">
-            <div class="card card-body bg-dark text-white mb-3 mt-2">
-              <h2>React Keyword Cheat Sheet</h2>
-              <ul>
-                <li><b>What is React?</b> - Include: React, JavaScript, library, user interfaces, data, reloading.</li>
-                <li><b>React Components:</b> - Include: components, reusable, building blocks, function-based,
-                  class-based.</li>
-                <li><b>State in React:</b> - Include: state, built-in object, component, re-renders, dynamic data.</li>
-                <li><b>Props in React:</b> - Include: props, properties, read-only, pass data, component.</li>
-                <li><b>JSX:</b> - Include: JSX, JavaScript XML, HTML, JavaScript, DOM.</li>
-                <li><b>React Lifecycle Methods:</b> - Include: lifecycle methods, stages, mount, update, unmount.</li>
-                <li><b>Effect Hook:</b> - Include: effect hook, side effects, functional components.</li>
-                <li><b>Virtual DOM:</b> - Include: virtual DOM, lightweight, update, faster.</li>
-                <li><b>React Router:</b> - Include: React Router, routing, single-page application, navigation.</li>
-                <li><b>Redux:</b> - Include: Redux, state, container, consistent, debug, manage.</li>
-                <li><b>What are React Hooks?</b> - Include: hooks, functions, state, features, functional components,
-                  useState, useEffect, reusability.</li>
-                <li><b>What is `useState` in React?</b> - Include: useState, Hook, state, functional components,
-                  initialize, setter function, update.</li>
-                <li><b>What does `useEffect` do in React?</b> - Include: useEffect, Hook, side effects, functional
-                  components, data fetching, DOM, dependencies.</li>
-                <li><b>What is the Context API in React?</b> - Include: Context API, data sharing, components, props,
-                  themes, user data, global settings.</li>
-                <li><b>What is a Higher-Order Component (HOC) in React?</b> - Include: Higher-Order Component, HOC,
-                  function, returns, component, reusability, authentication, logic.</li>
-                <li><b>How does React handle forms and controlled components?</b> - Include: forms, controlled
-                  components, input values, state, manage, validate.</li>
-                <li><b>What is Prop Drilling in React, and how do you solve it?</b> - Include: Prop Drilling, data,
-                  components, Context API, Redux, data flow, manage.</li>
-                <li><b>What are fragments in React, and why use them?</b> - Include: fragments, multiple elements, extra
-                  nodes, DOM, grouping, wrapper.</li>
-                <li><b>How does React’s key prop work, and why is it important?</b> - Include: key prop, uniquely
-                  identifies, list items, track elements, updates, optimize, re-rendering.</li>
-                <li><b>What is memoization in React, and when should you use `React.memo`?</b> - Include: memoization,
-                  optimize, performance, caching, React.memo, re-renders, props change.</li>
-              </ul>
+            <div id="tipContent" class="card card-body bg-dark text-white mb-3 mt-2">
+              <!-- Default tip content will be injected here -->
             </div>
           </div>
           <p>

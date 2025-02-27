@@ -259,10 +259,10 @@ document.getElementById("languageSelector").addEventListener("change", function 
   questionCount = 0;
   updateProgressBar(0);
   document.getElementById("chat").innerHTML = "";
-  askNextQuestion();
   
   // Refresh questions based on the selected language
   renderQuestions();
+  askNextQuestion();
 });
 
 // Function to render the questions based on the selected language

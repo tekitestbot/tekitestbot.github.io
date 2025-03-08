@@ -80,7 +80,7 @@ function addMessage(sender, message) {
       document.getElementById("messageInput").disabled = true;
     }
   }
-  
+
   const chat = document.getElementById('chat');
 
   // Create row wrapper
@@ -95,7 +95,7 @@ function addMessage(sender, message) {
   if (sender === 'bot') {
     messageDiv.style.whiteSpace = 'pre-wrap';
   }
-  
+
   rowDiv.appendChild(messageDiv);
   chat.appendChild(rowDiv);
   chat.scrollTop = chat.scrollHeight;
@@ -122,7 +122,7 @@ function addMessage(sender, message) {
   } else {
     messageDiv.innerText = message;
   }
-  
+
   chat.scrollTop = chat.scrollHeight;
   document.getElementById('messageInput').disabled = false;
 }
@@ -210,7 +210,12 @@ const questionsTypescript = [
   "What are the advantages of using TypeScript over JavaScript?",
   "What is type inference in TypeScript?",
   "What is a tuple in TypeScript?",
-  "What are generics in TypeScript?"
+  "What are generics in TypeScript?",
+  "What are interfaces in TypeScript?",
+  "What is the difference between type aliases and interfaces?",
+  "What is the 'unknown' type in TypeScript?",
+  "How does TypeScript handle modules and namespaces?",
+  "What are utility types in TypeScript?"
 ];
 
 const correctAnswersTypescript = [
@@ -218,7 +223,12 @@ const correctAnswersTypescript = [
   "TypeScript offers better tooling and type safety compared to JavaScript, allowing for more robust code with fewer bugs.",
   "TypeScript can infer types based on the initial value, making it easier to work with variables without explicitly defining their types.",
   "A tuple in TypeScript is an array with a fixed number of elements of different types.",
-  "Generics allow you to write flexible and reusable code by defining types that are specified at the time of usage."
+  "Generics allow you to write flexible and reusable code by defining types that are specified at the time of usage.",
+  "Interfaces in TypeScript define the structure of an object, ensuring it follows a specific shape. They help with type checking and better code organization.",
+  "Type aliases and interfaces are similar but differ in flexibility. Interfaces can be extended, while type aliases can represent more complex types like unions.",
+  "The 'unknown' type is a safer alternative to 'any' in TypeScript, requiring type checks before being assigned to specific types.",
+  "TypeScript handles modularity through ES6 modules and its own 'namespace' feature, allowing better organization and code reusability.",
+  "Utility types in TypeScript are built-in types that simplify type transformations, such as Partial<T>, Readonly<T>, and Pick<T>."
 ];
 
 const answerKeywordsTypescript = [
@@ -226,9 +236,13 @@ const answerKeywordsTypescript = [
   ["advantages", "typescript", "better", "tooling", "type safety"],
   ["type inference", "typescript", "initial value", "automatic"],
   ["tuple", "fixed", "array", "different types"],
-  ["generics", "reusable", "flexible", "code"]
+  ["generics", "reusable", "flexible", "code"],
+  ["interfaces", "typescript", "structure", "type checking", "object"],
+  ["type alias", "interface", "typescript", "difference", "union", "extend"],
+  ["unknown type", "typescript", "safer", "any", "type checking"],
+  ["modules", "namespaces", "typescript", "ES6", "organization"],
+  ["utility types", "typescript", "built-in", "transformation", "Partial", "Readonly"]
 ];
-
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -259,7 +273,7 @@ document.getElementById("languageSelector").addEventListener("change", function 
   questionCount = 0;
   updateProgressBar(0);
   document.getElementById("chat").innerHTML = "";
-  
+
   // Refresh questions based on the selected language
   renderQuestions();
   askNextQuestion();
@@ -283,10 +297,10 @@ function renderQuestions(firstLoad = false) {
   questionCount = 0;
 
   // Call to display the first question (or whatever logic you use to start the quiz)
-  if(firstLoad){
+  if (firstLoad) {
     askNextQuestion();
   }
-  
+
 }
 
 function checkAnswer(userAnswer) {
@@ -487,17 +501,22 @@ function updateTipBox() {
 function updateTipContent() {
   const tipButton = document.getElementById('tipButton');
   const tipContent = document.getElementById('tipContent');
-  
+
   if (currentLanguage === 'typescript') {
     tipButton.innerText = "Show TypeScript Keyword Cheat Sheet";
     tipContent.innerHTML = `<h2>TypeScript Keyword Cheat Sheet</h2>
-      <ul>
-        <li><b>What is TypeScript?</b> - Include: TypeScript, superset, JavaScript, types, static.</li>
-        <li><b>Advantages of TypeScript:</b> - Include: advantages, TypeScript, better, tooling, type safety.</li>
-        <li><b>Type Inference:</b> - Include: type inference, TypeScript, initial value, automatic.</li>
-        <li><b>Tuple in TypeScript:</b> - Include: tuple, fixed, array, different types.</li>
-        <li><b>Generics:</b> - Include: generics, reusable, flexible, code.</li>
-      </ul>`;
+    <ul>
+      <li><b>What is TypeScript?</b> - Include: TypeScript, superset, JavaScript, types, static.</li>
+      <li><b>Advantages of TypeScript:</b> - Include: advantages, TypeScript, better, tooling, type safety.</li>
+      <li><b>Type Inference:</b> - Include: type inference, TypeScript, initial value, automatic.</li>
+      <li><b>Tuple in TypeScript:</b> - Include: tuple, fixed, array, different types.</li>
+      <li><b>Generics:</b> - Include: generics, reusable, flexible, code.</li>
+      <li><b>Interfaces in TypeScript:</b> - Include: interfaces, TypeScript, object structure, type checking, contract.</li>
+      <li><b>Type Aliases vs Interfaces:</b> - Include: type alias, interface, TypeScript, difference, union, extend.</li>
+      <li><b>'Unknown' Type:</b> - Include: unknown type, TypeScript, safer, any, type checking, validation.</li>
+      <li><b>Modules & Namespaces:</b> - Include: modules, namespaces, TypeScript, ES6, organization, import, export.</li>
+      <li><b>Utility Types:</b> - Include: utility types, TypeScript, built-in, transformation, Partial, Readonly, Pick.</li>
+    </ul>`;
   } else {
     tipButton.innerText = "Show React Keyword Cheat Sheet";
     tipContent.innerHTML = `<h2>React Keyword Cheat Sheet</h2>
@@ -526,7 +545,7 @@ function updateTipContent() {
   }
 }
 
-document.getElementById('languageSelector').addEventListener('change', function() {
+document.getElementById('languageSelector').addEventListener('change', function () {
   currentLanguage = this.value;
   updateTipContent();
 });

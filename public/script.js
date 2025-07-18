@@ -303,6 +303,49 @@ function renderQuestions(firstLoad = false) {
 
 }
 
+// function checkAnswer(userAnswer) {
+//   if (currentQuestionIndex < correctAnswers.length) {
+//     const keywords = answerKeywords[currentQuestionIndex];
+//     if (isAnswerCorrect(userAnswer, keywords)) {
+//       score++;
+//       correctStreak++;
+//       if (correctStreak >= 3) {
+//         document.getElementById("chat").classList.add("neon-border");
+//       }
+//       addMessage('bot', `Correct! ${correctAnswers[currentQuestionIndex]}`);
+//     } else {
+//       correctStreak = 0;
+//       document.getElementById("chat").classList.remove("neon-border");
+//       addMessage('bot', `Incorrect. The correct answer is: ${correctAnswers[currentQuestionIndex]}`);
+//     }
+//     currentQuestionIndex++;
+//     questionCount++; // Increment question count
+
+//     // Show alert after every 5 questions
+//     // if (questionCount === 10) {
+//     //   // alert("You've answered 5 questions! Keep going!");
+//     //   // askForPayment(); 
+//     //   var maintenanceModal = new bootstrap.Modal(document.getElementById('maintenanceModal'));
+//     //   maintenanceModal.show();
+//     //   return; // Exit the function to prevent asking another question immediatel
+//     // }
+
+//     // Update live score
+//     updateLiveScore(score);
+
+//     if (currentQuestionIndex < questions.length) {
+//       setTimeout(() => {
+//         askNextQuestion();
+//       }, 1000);
+//     } else {
+//       setTimeout(() => {
+//         showFinalScore();
+//         endTest();
+//       }, 1000);
+//     }
+//   }
+// }
+
 function checkAnswer(userAnswer) {
   if (currentQuestionIndex < correctAnswers.length) {
     const keywords = answerKeywords[currentQuestionIndex];
@@ -313,22 +356,15 @@ function checkAnswer(userAnswer) {
         document.getElementById("chat").classList.add("neon-border");
       }
       addMessage('bot', `Correct! ${correctAnswers[currentQuestionIndex]}`);
+      triggerAnswerAnimation(true);  // Trigger correct answer animation
     } else {
       correctStreak = 0;
       document.getElementById("chat").classList.remove("neon-border");
       addMessage('bot', `Incorrect. The correct answer is: ${correctAnswers[currentQuestionIndex]}`);
+      triggerAnswerAnimation(false); // Trigger incorrect answer animation
     }
     currentQuestionIndex++;
     questionCount++; // Increment question count
-
-    // Show alert after every 5 questions
-    // if (questionCount === 10) {
-    //   // alert("You've answered 5 questions! Keep going!");
-    //   // askForPayment(); 
-    //   var maintenanceModal = new bootstrap.Modal(document.getElementById('maintenanceModal'));
-    //   maintenanceModal.show();
-    //   return; // Exit the function to prevent asking another question immediatel
-    // }
 
     // Update live score
     updateLiveScore(score);
@@ -549,3 +585,19 @@ document.getElementById('languageSelector').addEventListener('change', function 
   currentLanguage = this.value;
   updateTipContent();
 });
+
+// Trigger answer animation on the #chat element based on correctness
+function triggerAnswerAnimation(isCorrect) {
+  const chatElement = document.getElementById("chat");
+  if (isCorrect) {
+    chatElement.classList.add("correct-answer");
+    setTimeout(() => {
+      chatElement.classList.remove("correct-answer");
+    }, 600); // Duration matches the CSS animation duration
+  } else {
+    chatElement.classList.add("incorrect-answer");
+    setTimeout(() => {
+      chatElement.classList.remove("incorrect-answer");
+    }, 600);
+  }
+}
